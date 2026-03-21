@@ -23,6 +23,7 @@ import {
     Settings,
     Logout,
 } from '@mui/icons-material';
+import TabsNavigation from '@/shared/components/TabNavigation';
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -281,41 +282,44 @@ const AsidePanel = ({
 
 // Main DashboardLayout Component
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
-    const [asideOpen, setAsideOpen] = useState(false);
-    const [userMenuAnchor, setUserMenuAnchor] = useState<HTMLElement | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
-
-    const handleToggleAside = () => {
-        setAsideOpen(!asideOpen);
-    };
-
-    const handleUserMenuClick = (event: React.MouseEvent<HTMLElement>) => {
-        setUserMenuAnchor(event.currentTarget);
-    };
-
-    const handleUserMenuClose = () => {
-        setUserMenuAnchor(null);
-    };
-
-    const handleAsideClose = () => {
-        setAsideOpen(false);
-    };
-
-    // Detect mobile screen size
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+    const [showFilterForm, setShowFilterForm] = useState(false);
 
     return (
-        <div>{children}</div>
+        <div className='flex flex-1 min-w-0 overflow-hidden'>
+            <div id='dashboard-content' className="max-w-screen-2xl mx-auto min-w-0 w-full box-border overflow-hidden">
+                <div className='min-h-11 flex items-stretch px-4 bg-white border-b border-[#e1e8e7]'>
+                    <TopNavigation />
+                    <div>
+                        <button onClick={() => setShowFilterForm(!showFilterForm)}>Filter</button>
+                    </div>
+                </div>
+                {children}
+            </div>
+            <div id='filter-aside' className={`${showFilterForm ? 'w-75' : 'w-0'} min-w-0 overflow-hidden shrink-0 transition-[width] duration-300 ease-in-out flex flex-col`}>
+                <div className="w-75 h-full flex flex-col border-l border-gray-200 bg-white">
+                    <FilterForm />
+                </div>
+            </div>
+        </div>
     );
 };
 
 export default DashboardLayout;
+
+const TopNavigation = () => {
+    const [activeNavigation, setActiveNavigation] = useState('home1');
+
+    return (
+        <TabsNavigation
+            value={activeNavigation}
+            onChange={setActiveNavigation}
+            tabs={[{ label: 'Resumen', value: 'home1' }, { label: 'Cartera', value: 'home2' }, { label: 'Monitoreo', value: 'Fincas' }]}
+        />
+    );
+}
+
+const FilterForm = () => {
+    return <div>
+        FilterForm
+    </div>
+}

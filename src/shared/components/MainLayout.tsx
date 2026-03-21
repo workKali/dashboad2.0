@@ -19,17 +19,17 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className='bg-green-400 flex sm:grid sm:grid-cols-[200px_1fr]'>
-      <nav>
+    <div className='flex h-screen overflow-hidden sm:grid sm:grid-cols-[200px_1fr]'>
+      <nav className="h-full overflow-y-auto">
         <NavTemplate mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
       </nav>
 
-      <div className='w-full'>
-        <header>
+      <div className='flex flex-col h-full overflow-hidden'>
+        <header className="shrink-0">
           <Header onMenuClick={handleDrawerToggle} />
         </header>
 
-        <main className='max-w-375 mx-auto'>
+        <main className='flex-1 overflow-y-auto'>
           {children}
         </main>
       </div>
