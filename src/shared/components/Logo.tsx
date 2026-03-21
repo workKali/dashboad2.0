@@ -7,7 +7,7 @@ export const Logo = ({ className = "" }: LogoProps) => {
     <svg 
       viewBox="0 0 1920 418.6" 
       xmlns="http://www.w3.org/2000/svg" 
-      className={`w-full h-auto max-w-[220px] ${className}`}
+      className={`w-full h-auto max-w-55 ${className}`}
     >
       <style>{`.st0{fill:#499B53;}.st1{fill:#3B6978;}`}</style>
       <g>
