@@ -69,9 +69,47 @@ trigger: always_on
 - State should live inside the feature when possible
 - Avoid global state unless truly necessary
 
+## 🎯 Code Generation Rules (IMPORTANT)
+
+- Generated code must be:
+  - Clean
+  - Production-ready
+  - Readable
+  - Not over-engineered
+
+- Avoid:
+  - unnecessary abstractions
+  - excessive comments
+  - deeply nested logic
+
+## 📄 File Organization Rules (AI Output)
+
+- By default, follow feature-based multi-file architecture
+
+- HOWEVER:
+  - If the task is a **single component, layout, or UI composition**
+  - Then keep everything in a **SINGLE FILE**
+
+- In single-file scenarios:
+  - You MAY define small internal components inside the same file
+    (e.g. Topbar, AsidePanel)
+  - Do NOT create additional files or folders
+  - Keep logic locally scoped and simple
+
+## ⚖️ Priority Rules
+
+- Feature-based architecture is the default
+- Single-file output is allowed ONLY for:
+  - layouts
+  - UI compositions
+  - small scoped components
+
+- Do NOT break architecture for large features
+
 ## 🚫 Anti-patterns
 
 - Global `components/` folder with mixed responsibilities
 - Cross-feature imports
 - Business logic inside shared/
 - Direct API calls in UI components
+- Creating multiple files when a single-file solution is explicitly required

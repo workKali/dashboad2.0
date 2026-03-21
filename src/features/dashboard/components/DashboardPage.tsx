@@ -1,4 +1,4 @@
 // Dashboard components
 export const DashboardPage = () => {
-  return <p>Dashboard</p>;
+  return <div className="h-[2000px]"><p>Dashboard</p></div>;
 };
