@@ -1,0 +1,4 @@
+// Dashboard components
+export const DashboardPage = () => {
+  return <p>Dashboard</p>;
+};
