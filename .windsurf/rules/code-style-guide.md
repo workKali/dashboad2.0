@@ -78,42 +78,45 @@ trigger: always_on
 - External libraries may require custom styles
 - Complex animations can use custom CSS
 - Edge cases may use inline styles with justification
-
-# 🧩 Windsurf Style & Component Rules
+# 🧩 Windsurf Style & Component Rules: Tailwind-Dominant
 
 ---
 
-## 🚀 Core Strategy: Tailwind-First
-- **Primary Engine:** Use **Tailwind CSS** for 90% of UI elements.
-- **Complexity Check:** Only use **MUI** if the component is functionally complex (e.g., DataGrid, DatePicker, Autocomplete, complex Modals).
-- **Simplicity Rule:** If a component can be built with a standard HTML tag and Tailwind in under 10-15 lines, **do not use MUI**. Avoid `<Box>`, `<Container>`, or `<Stack>` from MUI; use `<div>` with Tailwind flex/grid instead.
+## 🚀 Estrategia Core: Tailwind-First (Prioridad 100%)
+- **Motor Principal:** Usa **Tailwind CSS** para el 90-100% de los elementos de la interfaz.
+- **Regla de Simplicidad:** Si un componente se puede construir con etiquetas HTML estándar (`div`, `section`, `nav`, `button`, `input`) y Tailwind, **está prohibido usar MUI**.
+- **Adiós a los Wrappers de MUI:** No utilices `<Box>`, `<Container>`, `<Stack>` o `<Grid>` de MUI. Sustitúyelos siempre por `<div>` con clases de Flexbox o Grid de Tailwind.
+- **Complejidad Funcional:** Solo se permite **MUI** para componentes con lógica interna pesada (ej. `DataGrid`, `DatePicker`, `Autocomplete`, `Selects` con búsqueda, o `Modales` con gestión de foco compleja).
 
-## 🧱 Component Architecture & Reusability
-- **Shared Component Promotion:** If an HTML element or group of elements with Tailwind is identified as reusable or repeatable, **extract it immediately** into a shared component (e.g., `@/components/shared` or `@/components/ui`).
-- **Atomic Thinking:** Prefer small, focused functional components over large, monolithic blocks of JSX.
-- **Props Overriding:** All shared components should accept a `className` prop to allow for parent-driven layout adjustments (margins, positioning).
+## 🧱 Arquitectura de Componentes (Shared Components)
+- **Extracción Inmediata:** Si identificas un patrón HTML + Tailwind que se repite o es propenso a reutilizarse, **extráelo automáticamente** a un componente compartido en `@/components/shared` o `@/components/ui`.
+- **Componentes Atómicos:** Prefiere crear un `Button.tsx` propio con Tailwind en lugar de usar `<Button>` de MUI si no requiere estados de carga o lógica compleja del framework.
+- **Propiedad `className`:** Todos los componentes compartidos deben aceptar una prop `className` para permitir que el padre controle el margen (`m-`), el espaciado o la posición sin romper el componente.
+
+## 🔤 Tipografía y Tamaños Estándar
+- **Escala Tailwind:** No uses `variant` de MUI para textos si no es estrictamente necesario. Usa etiquetas semánticas (`h1`, `h2`, `p`, `span`) con la escala nativa de Tailwind:
+  - ✅ `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, etc.
+- **Prohibido Hardcoding:** No uses valores arbitrarios como `text-[15px]`. Ajusta el diseño para que encaje en los pasos estándar de Tailwind.
+- **Consistencia:** Si el diseño pide un tamaño intermedio, prefiere el valor estándar más cercano de Tailwind para mantener la armonía visual.
 
 ## 🎨 Design System & Theming
-- **Single Source of Truth:** All colors, spacing, and typography must come from the `tailwind.config.js`.
-- **No Hardcoding:** Avoid arbitrary values (e.g., `text-[#333]` or `p-[13px]`). Use the design system scale.
-- **MUI Sync:** If MUI is required, it must be configured to inherit the Tailwind theme tokens (via CSS variables or theme mapping).
+- **Fuente de Verdad Única:** El archivo `tailwind.config.js` es la autoridad. El tema de MUI debe estar sincronizado para usar los mismos colores y fuentes (vía variables CSS o mapeo directo).
+- **Cero Estilos Inline:** No uses el atributo `style={{...}}` ni valores arbitrarios en clases (ej. `bg-[#f3f3f3]`) a menos que sean valores dinámicos calculados en tiempo de ejecución.
 
-## ⚛️ MUI Usage & Constraints
-- **Restrict `sx` Prop:** - ✅ Use `sx` ONLY for: Dynamic styles based on runtime state or complex MUI theme overrides.
-  - ❌ NEVER use `sx` for: Layout (flex, grid), spacing (p, m, gap), or positioning. Use Tailwind classes.
-- **Typography:** Use semantic HTML tags (`<h1>`, `<p>`, etc.) with Tailwind classes instead of MUI `<Typography>` unless specific theme-variant logic is required.
-- **Interaction:** Use MUI for complex interaction states (managed focus, ARIA accessibility, transitions).
+## ⚛️ Restricciones de MUI y `sx`
+- **Uso de `sx` PROHIBIDO para Layout:** - ❌ NUNCA uses `sx` para: `display`, `flex`, `grid`, `gap`, `padding`, `margin`, `width`, `height` o `position`.
+  - ✅ Solo usa `sx` para: Estilos condicionales ultra-complejos que dependan directamente del estado de React y no se puedan resolver con `clsx` o `tailwind-merge`.
+- **Interacción:** Usa MUI solo cuando necesites accesibilidad avanzada (ARIA) o estados de interacción que Tailwind no maneje de forma nativa con la misma facilidad (ej. menús desplegables con teclado).
 
-## 📱 Layout & Responsive Design
-- **Tailwind Only:** All layout logic (Flexbox, Grid, Responsive Breakpoints) must be handled by Tailwind.
-- **Consistency:** Keep responsive logic within Tailwind classes to avoid fragmentation between MUI's system and Tailwind's utilities.
+## 📱 Diseño Responsivo
+- **Breakpoints de Tailwind:** Usa exclusivamente los prefijos de Tailwind (`sm:`, `md:`, `lg:`, `xl:`) para toda la lógica responsiva. No mezcles con `useMediaQuery` de MUI a menos que sea para lógica de renderizado condicional en JS.
 
-## 🚫 Anti-patterns (Strictly Forbidden)
-- **Style Mixing:** Do not apply the same property using both Tailwind and the `sx` prop.
-- **MUI Wrappers:** Do not wrap simple layouts in `<Box>` or `<Container>`.
-- **Inline Styles:** Do not use the `style={{...}}` attribute unless for calculated dynamic values (like a progress bar width).
-- **Ad-hoc Variants:** Do not create one-off button or input styles with Tailwind; if it's a new style, define it as a reusable shared component or a theme variant.
+## 🚫 Anti-patrones (Estrictamente Prohibidos)
+1. **Mezclar Estilos:** No apliques la misma propiedad con Tailwind y `sx` a la vez. **Tailwind siempre gana.**
+2. **Typography de MUI por defecto:** Evita `<Typography variant="body1">`, usa `<p className="text-base">`.
+3. **MUI de bajo nivel:** No uses componentes de MUI que solo aporten estilo visual (como `Paper`, `Card`, `Divider`). Hazlos con Tailwind.
+4. **Hardcoding de Colores:** No uses `text-red-500` si el tema define un color semántico; usa las clases del tema (ej. `text-error` o `text-primary`).
 
-## ✅ Exceptions
-- Complex animations requiring `framer-motion` or MUI-specific transition components.
-- Third-party library integrations that require specific class overrides.
+## ✅ Excepciones
+- Animaciones complejas que requieran `Framer Motion` o transiciones nativas de MUI.
+- Librerías de terceros que obliguen a usar clases específicas o estilos inyectados.

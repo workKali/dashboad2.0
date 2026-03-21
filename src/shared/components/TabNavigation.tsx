@@ -1,42 +1,36 @@
 'use client'
 
-import React from 'react'
+import { Tab, Tabs } from '@mui/material'
+import { TabBrand } from './navigation/TabBrand'
+import { TabsBrand } from './navigation/TabsBrand'
 
 type Tab = {
   label: string
-  value: string
+  value: string | number
 }
 
 type TabsProps = {
   tabs: Tab[]
-  value: string
-  onChange: (value: string) => void
+  value: string | number
+  onChange: (value: string | number) => void
 }
 
 const TabNavigation = ({ tabs, value, onChange }: TabsProps) => {
   return (
-    <div className="flex items-stretch overflow-x-auto flex-1 min-w-0 scrollbar-none">
-      {tabs.map((tab) => {
-        const active = tab.value === value
-
-        return (
-          <button
-            key={tab.value}
-            onClick={() => onChange(tab.value)}
-            className={`
-              px-4 border-b-2 whitespace-nowrap shrink-0
-              text-[11px] font-poppins transition-colors
-              ${active
-                ? 'border-green-600 text-green-600 font-semibold'
-                : 'border-transparent text-[#7a9e8e] font-normal hover:text-green-600'
-              }
-            `}
-          >
-            {tab.label}
-          </button>
-        )
-      })}
-    </div>
+    <TabsBrand
+      value={value}
+      variant="scrollable"
+      allowScrollButtonsMobile
+      onChange={(_event, newValue) => onChange(newValue)}
+    >
+      {tabs.map((tab, index) =>
+        <TabBrand
+          value={tab.value}
+          label={tab.label}
+          key={`${tab.label}-${index}`}
+        />
+      )}
+    </TabsBrand>
   )
 }
 

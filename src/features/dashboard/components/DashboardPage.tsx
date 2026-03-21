@@ -1,6 +1,6 @@
 // Dashboard components
 export const DashboardPage = () => {
-  return <div className="h-[2000px]"><p>Dashboard</p>
+  return <div className="h-500"><p>Dashboard</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quibusdam, sequi, voluptate vel obcaecati laborum totam voluptatum et repellat beatae nulla similique incidunt? Distinctio officiis nemo autem eaque sit ipsum.
       Iusto illum odit excepturi reiciendis aut earum vitae quia, ratione quasi itaque asperiores fugit sequi quis in consectetur. Totam, nemo? Veritatis porro quisquam dignissimos unde exercitationem. Doloremque veniam cum provident.
       Ratione reprehenderit molestiae doloremque, consequatur voluptatem rerum obcaecati pariatur quod! A beatae corrupti dolore ipsam earum quibusdam corporis obcaecati asperiores iusto porro ratione, voluptates repellat doloribus, iste neque quam itaque.

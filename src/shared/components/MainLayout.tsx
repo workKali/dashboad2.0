@@ -1,11 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, CssBaseline, Drawer } from '@mui/material';
+import { Drawer } from '@mui/material';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
-
-const drawerWidth = 200;
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -19,28 +17,13 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className='flex h-screen overflow-hidden sm:grid sm:grid-cols-[200px_1fr]'>
-      <nav className="h-full overflow-y-auto">
-        <NavTemplate mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+    <div className='flex h-screen overflow-hidden'>
+      {/* Desktop Sidebar */}
+      <nav className="hidden md:block w-48 bg-white ">
+        <Sidebar />
       </nav>
 
-      <div className='flex flex-col h-full overflow-hidden'>
-        <header className="shrink-0">
-          <Header onMenuClick={handleDrawerToggle} />
-        </header>
-
-        <main className='flex-1 overflow-y-auto'>
-          {children}
-        </main>
-      </div>
-    </div>
-  );
-};
-
-const NavTemplate = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, handleDrawerToggle: () => void }) => {
-  return (
-    <>
-      {/* Mobile Drawer */}
+      {/* Mobile Sidebar Drawer */}
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -48,21 +31,28 @@ const NavTemplate = ({ mobileOpen, handleDrawerToggle }: { mobileOpen: boolean, 
         ModalProps={{
           keepMounted: true,
         }}
+        className="md:hidden"
         sx={{
-          display: { xs: 'block', sm: 'none' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
+            width: 200,
           },
         }}
       >
         <Sidebar />
       </Drawer>
 
-      {/* Desktop Drawer */}
-      <div className='hidden sm:block'>
-        <Sidebar />
+      {/* Main Content */}
+      <div className='flex flex-col flex-1 overflow-hidden'>
+        <header className="shrink-0">
+          <Header onMenuClick={handleDrawerToggle} showMenuButton={true} />
+        </header>
+
+        <main className='flex-1 overflow-y-auto bg-gray-50'>
+          {children}
+        </main>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
+

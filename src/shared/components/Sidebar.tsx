@@ -92,7 +92,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = "" }) => {
 
   return (
     <div className={`shrink-0 bg-white border-r border-gray-200 flex flex-col sticky top-0 h-screen z-300 ${className}`}>
-      <div style={{ padding: '20px 5px 16px' }}>
+      <div className='px-4 py-5'>
         <Logo className="max-w-55" />
       </div>
 
