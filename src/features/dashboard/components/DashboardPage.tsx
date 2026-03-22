@@ -1,5 +1,6 @@
-import CardInfo from "@/features/dashboard/components/CardInfo";
+import CardInfo from "@/features/dashboard/components/ui/CardInfo";
 import StatusIndicator from "@/shared/components/ui/StatusIndicator";
+import CardPlacedPorfolio from "./CardPlacedPorfolio";
 
 // Dashboard components
 export const DashboardPage = () => {
@@ -17,9 +18,7 @@ export const DashboardPage = () => {
         <CardInfo>
 
         </CardInfo>
-        <CardInfo topBorder="bg-[#16a34a]">
-          <h1>Tuani</h1>
-        </CardInfo>
+        <CardPlacedPorfolio />
         <CardInfo leftBorder="bg-[#16a34a]">
           <h1>Tuani</h1>
         </CardInfo>
