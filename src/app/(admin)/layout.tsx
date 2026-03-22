@@ -1,4 +1,4 @@
-import { MainLayout } from '@/shared/components';
+import { MainLayout } from '@/shared/components/MainLayout';
 
 export default function layout({ children }: { children: React.ReactNode }) {
     return (

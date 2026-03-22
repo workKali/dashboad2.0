@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { TabNavigation } from '@/shared/components'
+import TabNavigation from '@/shared/components/TabNavigation'
 
 export const TopNavigation = () => {
     const [activeNavigation, setActiveNavigation] = useState<string | number>('home1')

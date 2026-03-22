@@ -1,6 +1,7 @@
 'use client';
 
-import { ToggleGroup } from "@/shared/components";
+import ToggleGroup from "@/shared/components/ui/ToggleGroup";
+import StatusIndicator from "@/shared/components/ui/StatusIndicator/StatusIndicator";
 
 export default function Home() {
   const toggleOptions = [
@@ -13,12 +14,14 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <ToggleGroup 
+    <div className="flex flex-col items-center h-screen bg-gray-400 gap-4">
+      <ToggleGroup
         options={toggleOptions}
         defaultValue="montos"
         onChange={handleToggleChange}
       />
+      <StatusIndicator status="live" text="EN VIVO" size="md" />
+      <StatusIndicator status="live" text="EN VIVO" size="sm" />
     </div>
   );
 }
