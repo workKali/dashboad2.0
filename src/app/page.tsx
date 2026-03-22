@@ -1,7 +1,8 @@
 'use client';
 
 import ToggleGroup from "@/shared/components/ui/ToggleGroup";
-import StatusIndicator from "@/features/dashboard/components/StatusIndicator";
+import Badge from "@/shared/components/ui/Badge";
+import ButtonInfo from "@/features/dashboard/components/ButtonInfo";
 
 export default function Home() {
   const toggleOptions = [
@@ -14,14 +15,25 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center h-screen bg-gray-400 gap-4">
+    <div className="flex flex-col items-center h-screen  gap-4">
       <ToggleGroup
         options={toggleOptions}
         defaultValue="montos"
         onChange={handleToggleChange}
       />
-      <StatusIndicator>EN VIVO</StatusIndicator>
-      <StatusIndicator variant='approved' size='sm'>Estado: Aprobado</StatusIndicator>
+
+      <Badge color='low'>Bajo</Badge>
+      <Badge color='medium'>Medio</Badge>
+      <Badge color='high'>Alto</Badge>
+
+      <Badge size='xs'>mora</Badge>
+      <Badge size='xs' color='high'>$42.M</Badge>
+
+      <Badge color='low' rounded='full' size='sm'>7 Fincas con alerta</Badge>
+      <Badge color='medium'>mora</Badge>
+
+
+      <ButtonInfo variant='high-risk' badge={10} badgeColor='deforestation'>Ver fincas con deficit hidrico</ButtonInfo>
     </div>
   );
 }

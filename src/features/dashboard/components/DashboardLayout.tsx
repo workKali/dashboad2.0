@@ -21,7 +21,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
             <div className='flex flex-1 min-w-0 overflow-hidden'>
                 <div id='dashboard-content' className="mx-auto min-w-0 w-full box-border overflow-hidden">
                     <div className='bg-white border-b border-[#e1e8e7]'>
-                        <div className='min-h-11 flex items-center max-w-7xl mx-auto'>
+                        <div className='min-h-11 flex items-center max-w-7xl mx-auto px-7'>
                             <TopNavigation />
                             <div className="ml-auto">
                                 <button
@@ -33,7 +33,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
                             </div>
                         </div>
                     </div>
-                    <div className='max-w-7xl mx-auto'>
+                    <div className='max-w-7xl mx-auto py-5 px-7'>
                         {children}
                     </div>
                 </div>
