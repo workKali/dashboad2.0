@@ -19,19 +19,23 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
     return (
         <>
             <div className='flex flex-1 min-w-0 overflow-hidden'>
-                <div id='dashboard-content' className="max-w-screen-2xl mx-auto min-w-0 w-full box-border overflow-hidden">
-                    <div className='min-h-11 flex items-center px-4 bg-white border-b border-[#e1e8e7]'>
-                        <TopNavigation />
-                        <div className="ml-auto">
-                            <button
-                                onClick={handleToggleFilter}
-                                className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
-                            >
-                                Filter
-                            </button>
+                <div id='dashboard-content' className="mx-auto min-w-0 w-full box-border overflow-hidden">
+                    <div className='bg-white border-b border-[#e1e8e7]'>
+                        <div className='min-h-11 flex items-center max-w-7xl mx-auto'>
+                            <TopNavigation />
+                            <div className="ml-auto">
+                                <button
+                                    onClick={handleToggleFilter}
+                                    className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
+                                >
+                                    Filter
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    {children}
+                    <div className='max-w-7xl mx-auto'>
+                        {children}
+                    </div>
                 </div>
                 <div className={clsx("hidden md:block transition-[width] duration-300 ease-in-out min-w-0 shrink-0", showFilterForm ? "w-80" : "w-0")}>
                     <div className='border-l border-gray-200 h-full bg-white'>
