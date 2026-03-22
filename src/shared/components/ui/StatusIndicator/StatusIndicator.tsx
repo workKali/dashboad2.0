@@ -1,77 +1,93 @@
 'use client';
 
 import { clsx } from 'clsx';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-export type StatusType = 'live' | 'offline' | 'pending';
+const statusIndicatorVariants = cva(
+  // Base styles
+  'inline-flex items-center rounded-md border font-semibold text-xs',
+  {
+    variants: {
+      status: {
+        live: 'bg-[rgb(240,253,244)] border-[rgb(187,247,208)]',
+        offline: 'bg-[rgb(249,250,251)] border-[rgb(229,231,235)]',
+        pending: 'bg-[rgb(254,252,232)] border-[rgb(252,211,77)]'
+      },
+      size: {
+        sm: 'gap-1 px-1.5 py-0.5',
+        md: 'gap-1.5 px-2.5 py-1'
+      }
+    },
+    defaultVariants: {
+      status: 'live',
+      size: 'md'
+    }
+  }
+);
 
-interface StatusIndicatorProps {
-  status: StatusType;
+const statusDotVariants = cva(
+  // Base styles
+  'rounded-full shrink-0',
+  {
+    variants: {
+      status: {
+        live: 'bg-[rgb(22,163,74)]',
+        offline: 'bg-[rgb(107,114,128)]',
+        pending: 'bg-[rgb(251,191,36)]'
+      },
+      size: {
+        sm: 'w-1.25 h-1.25',
+        md: 'w-1.5 h-1.5'
+      }
+    },
+    defaultVariants: {
+      status: 'live',
+      size: 'md'
+    }
+  }
+);
+
+const statusTextVariants = cva('whitespace-nowrap', {
+  variants: {
+    status: {
+      live: 'text-[rgb(21,128,61)]',
+      offline: 'text-[rgb(75,85,99)]',
+      pending: 'text-[rgb(146,64,14)]'
+    }
+  },
+  defaultVariants: {
+    status: 'live'
+  }
+});
+
+export type StatusIndicatorProps = VariantProps<typeof statusIndicatorVariants> & {
   text?: string;
   className?: string;
-  size?: 'sm' | 'md';
-}
+};
 
-const statusStyles = {
-  live: {
-    container: 'bg-[rgb(240,253,244)] border-[rgb(187,247,208)]',
-    dot: 'bg-[rgb(22,163,74)]',
-    text: 'text-[rgb(21,128,61)]',
-    label: 'EN VIVO'
-  },
-  offline: {
-    container: 'bg-[rgb(249,250,251)] border-[rgb(229,231,235)]',
-    dot: 'bg-[rgb(107,114,128)]',
-    text: 'text-[rgb(75,85,99)]',
-    label: 'OFFLINE'
-  },
-  pending: {
-    container: 'bg-[rgb(254,252,232)] border-[rgb(252,211,77)]',
-    dot: 'bg-[rgb(251,191,36)]',
-    text: 'text-[rgb(146,64,14)]',
-    label: 'PENDIENTE'
-  }
-} as const;
-
-const sizeStyles = {
-  sm: {
-    container: 'gap-1 px-1.5 py-0.5',
-    dot: 'w-1.25 h-1.25'
-  },
-  md: {
-    container: 'gap-1.5 px-2.5 py-1',
-    dot: 'w-1.5 h-1.5'
-  }
+const statusLabels = {
+  live: 'EN VIVO',
+  offline: 'OFFLINE',
+  pending: 'PENDIENTE'
 } as const;
 
 const StatusIndicator = ({
   status,
+  size,
   text,
-  className,
-  size = 'md',
+  className
 }: StatusIndicatorProps) => {
-  const statusConfig = statusStyles[status];
-  const sizeConfig = sizeStyles[size];
-
   return (
-    <div
-      className={clsx(
-        'inline-flex items-center rounded-md border font-semibold text-xs',
-        sizeConfig.container,
-        statusConfig.container,
-        className
-      )}
-    >
+    <div className={clsx(statusIndicatorVariants({ status, size }), className)}>
       <span
         className={clsx(
-          'rounded-full shrink-0',
-          sizeConfig.dot,
-          statusConfig.dot,
+          statusDotVariants({ status, size }),
           status === 'live' && 'animate-pulse'
         )}
         aria-hidden="true"
       />
-      <span className={clsx('whitespace-nowrap', statusConfig.text)}>
-        {text || statusConfig.label}
+      <span className={statusTextVariants({ status })}>
+        {text || statusLabels[status!]}
       </span>
     </div>
   );
