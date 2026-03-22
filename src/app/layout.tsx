@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Poppins } from 'next/font/google'
 import "./globals.css";
 import ThemeRegistry from "@/core/ThemeRegistry";
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={poppins.className}>
+      <body className={poppins.className}>
         <ThemeRegistry>
           {children}
         </ThemeRegistry>
