@@ -1,7 +1,7 @@
 'use client';
 
 import ToggleGroup from "@/shared/components/ui/ToggleGroup";
-import StatusIndicator from "@/shared/components/ui/StatusIndicator/StatusIndicator";
+import StatusIndicator from "@/features/dashboard/components/StatusIndicator";
 
 export default function Home() {
   const toggleOptions = [
@@ -20,8 +20,8 @@ export default function Home() {
         defaultValue="montos"
         onChange={handleToggleChange}
       />
-      <StatusIndicator status="live" text="EN VIVO" size="md" />
-      <StatusIndicator status="live" text="EN VIVO" size="sm" />
+      <StatusIndicator>EN VIVO</StatusIndicator>
+      <StatusIndicator variant='approved' size='sm'>Estado: Aprobado</StatusIndicator>
     </div>
   );
 }
