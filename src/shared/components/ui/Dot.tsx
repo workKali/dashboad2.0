@@ -6,7 +6,7 @@ const dotVariants = cva("w-1.5 h-1.5 shrink-0 inline-block", {
         rounded: {
             full: "rounded-full",
             xs: "rounded-xs"
-        }
+        },
     },
     defaultVariants: {
         rounded: "full"

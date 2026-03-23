@@ -45,9 +45,11 @@ interface DefailtDetailBarProps {
 
 export const DefaultDetailBar = ({ label, percentage, variantBadge, money, badgeClassNames, containerClassName, labelClassName, dotVariant = 'xs', dotClassName }: DefailtDetailBarProps) => {
     return (
-        <div className={clsx("flex items-center gap-1", containerClassName)}>
-            <Dot className={dotClassName} rounded={dotVariant} />
-            <span className={clsx(labelClassName)}>{label}</span>
+        <div className={clsx("flex items-center justify-between gap-1", containerClassName)}>
+            <div className="flex items-center gap-1 flex-1">
+                <Dot className={dotClassName} rounded={dotVariant} />
+                <span className={clsx(labelClassName)}>{label}</span>
+            </div>
             <Badge variant={variantBadge as any} className={badgeClassNames}>{percentage}%</Badge>
             {money &&
                 <span className="text-11 text-[#4b504e]">{money}</span>

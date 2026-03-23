@@ -3,6 +3,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { Logo } from './Logo';
 import { SidebarNavItem } from './SidebarNavItem';
+import { clsx } from 'clsx';
 
 const navigationItems = [
   {
@@ -86,12 +87,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ className = "" }) => {
   const pathname = usePathname();
 
   const handleNavItemClick = (itemId: string) => {
-    // Navigation logic will be handled by Next.js router
     console.log('Navigate to:', itemId);
   };
 
   return (
-    <div className={`shrink-0 bg-white border-r border-gray-200 flex flex-col sticky top-0 h-screen z-300 ${className}`}>
+    <div className={clsx("shrink-0 bg-white border-r border-gray-200 flex flex-col sticky top-0 h-screen z-300", className)}>
       <div className='px-4 py-5'>
         <Logo className="max-w-55" />
       </div>

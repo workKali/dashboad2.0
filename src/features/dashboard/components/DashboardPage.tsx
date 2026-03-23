@@ -3,6 +3,7 @@ import CardPlacedPorfolio from "./CardTemplates/CardPlacedPorfolio";
 import CardHighRisk from "./CardTemplates/CardHighRisk";
 import CardMixRisk from "./CardTemplates/CardMixRisk";
 import CardLatePayment from "./CardTemplates/CardLatePayment";
+import MonitoringSatellital from "./MonitoringSatellital";
 
 // Dashboard components
 export const DashboardPage = () => {
@@ -22,6 +23,8 @@ export const DashboardPage = () => {
         <CardMixRisk />
         <CardLatePayment />
       </div>
+
+      <MonitoringSatellital />
     </div>
   )
 };
