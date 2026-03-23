@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.tsx": "typescriptreact",
+        "*.ts": "typescript"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "tailwindCSS.classFunctions": [
+        "tw",
+        "clsx",
+        "tw\\.[a-z-]+"
+    ]
+}

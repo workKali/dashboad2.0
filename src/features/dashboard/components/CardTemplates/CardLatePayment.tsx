@@ -1,7 +1,7 @@
 import CardInfo from "../ui/CardInfo"
 import { TrackingPercentage } from "./CardHighRisk"
 import { Dot } from "@/shared/components/ui/Dot"
-import { RiskDetailBar, RiskDistributionBar } from "./BarDistributionTemplate"
+import { DefaultDetailBar, DetailBarSecondary, RiskDistributionBar } from "./BarDistributionTemplate"
 import Divider from "../ui/Divider"
 import CardButton from "../ui/CardButton"
 
@@ -36,9 +36,9 @@ const CardLatePayment = () => {
                 <p className="text-10 font-semibold text-[#7a9e8e] uppercase tracking-wider">Tramos de mora</p>
                 <RiskDistributionBar data={[{ label: "Mora", value: "7", percentage: 7, color: "bg-[#22c55e]" }, { label: "Sana", value: "93", percentage: 93, color: "bg-[#ef4444]" }, { label: "Sana", value: "93", percentage: 93, color: "bg-[#ef4444]" }]} />
                 <div className="flex flex-wrap gap-2">
-                    <RiskDetailBar label="1-30 Dias" percentage={7} variant="low" labelClassName="!text-10 !text-[#3a5244] !font-normal" />
-                    <RiskDetailBar label="31-60 días" percentage={93} variant="medium" labelClassName="!text-10 !text-[#3a5244] !font-normal" />
-                    <RiskDetailBar label=">60 días" percentage={93} variant="high" labelClassName="!text-10 !text-[#3a5244] !font-normal" />
+                    <DefaultDetailBar label={"1-30 Dias"} percentage={7} variantBadge={"low"} dotClassName="bg-[#ef4444]" labelClassName="text-11" />
+                    <DefaultDetailBar label={"31-60 Dias"} percentage={93} variantBadge={"high"} dotClassName="bg-[#ef4444]" labelClassName="text-11" />
+                    <DefaultDetailBar label={">60 Dias"} percentage={93} variantBadge={"medium"} dotClassName="bg-[#ef4444]" labelClassName="text-11" />
                 </div>
             </div>
 

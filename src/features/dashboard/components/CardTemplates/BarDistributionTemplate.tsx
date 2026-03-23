@@ -27,37 +27,50 @@ export const RiskDistributionBar = ({ data, className }: RiskBarProps) => {
     );
 };
 
-interface RiskDetailBarProps {
+interface DefailtDetailBarProps {
     label: string;
     money?: string;
     percentage: number;
+
+    dotVariant?: 'full' | 'xs';
+
+    dotClassName?: string;
     labelClassName?: string;
     badgeClassNames?: string;
+
     containerClassName?: string;
-    variant: 'low' | 'medium' | 'high' | 'crop';
+
+    variantBadge: 'low' | 'medium' | 'high' | 'crop';
 }
 
-export const RiskDetailBar = ({ label, percentage, variant, money, badgeClassNames, containerClassName, labelClassName }: RiskDetailBarProps) => {
-    let dotColor: string;
-    if (variant === 'low')
-        dotColor = 'bg-[#22c55e]';
-    else if (variant === 'medium')
-        dotColor = 'bg-[#f59e0b]';
-    else if (variant === 'crop')
-        dotColor = 'bg-[#3b82f6]';
-    else
-        dotColor = 'bg-[#ef4444]';
-
+export const DefaultDetailBar = ({ label, percentage, variantBadge, money, badgeClassNames, containerClassName, labelClassName, dotVariant = 'xs', dotClassName }: DefailtDetailBarProps) => {
     return (
-        <div className={clsx("flex items-center gap-1 flex-wrap", containerClassName)}>
-            <div className="flex items-center gap-1">
-                <Dot className={dotColor} />
-                <span className={clsx("text-11 text-[#3a5244] font-semibold", labelClassName)}>{label}</span>
-            </div>
-            <Badge variant={variant as any} className={badgeClassNames}>{percentage}%</Badge>
+        <div className={clsx("flex items-center gap-1", containerClassName)}>
+            <Dot className={dotClassName} rounded={dotVariant} />
+            <span className={clsx(labelClassName)}>{label}</span>
+            <Badge variant={variantBadge as any} className={badgeClassNames}>{percentage}%</Badge>
             {money &&
-                <span className="text-11 text-[#7a9e8e]">{money}</span>
+                <span className="text-11 text-[#4b504e]">{money}</span>
             }
         </div>
     );
 }
+
+const riskLevelColor = {
+    low: 'bg-[#22c55e]',
+    medium: 'bg-[#f59e0b]',
+    high: 'bg-[#ef4444]'
+}
+export const DetailBarRiskScore = ({ size, riskLevel, label, money, percentage }: {
+    size?: 'sm' | 'md',
+    riskLevel: 'low' | 'medium' | 'high'
+    label: string,
+    money?: string,
+    percentage: number,
+}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="low" money={money} labelClassName={`text-[#3a5244] font-semibold ${size === 'sm' ? 'text-10' : 'text-11'}`} dotClassName={riskLevelColor[riskLevel]} />
+
+export const DetailBarSecondary = ({ size, label, percentage }: {
+    size: 'sm' | 'md',
+    label: string,
+    percentage: number,
+}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="medium" labelClassName={`text-[#3a5244] font-normal ${size === 'sm' ? 'text-9' : 'text-10'}`} />

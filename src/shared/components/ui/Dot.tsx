@@ -1,5 +1,22 @@
 import clsx from "clsx"
+import { cva, type VariantProps } from "class-variance-authority"
 
-export const Dot = ({ className }: { className?: string }) => {
-    return <div className={clsx("w-1.5 h-1.5 rounded-xs shrink-0 inline-block", className)} />
+const dotVariants = cva("w-1.5 h-1.5 shrink-0 inline-block", {
+    variants: {
+        rounded: {
+            full: "rounded-full",
+            xs: "rounded-xs"
+        }
+    },
+    defaultVariants: {
+        rounded: "full"
+    }
+})
+
+export interface DotProps extends VariantProps<typeof dotVariants> {
+    className?: string
+}
+
+export const Dot = ({ className, rounded }: DotProps) => {
+    return <div className={clsx(dotVariants({ rounded }), className)} />
 }
