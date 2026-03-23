@@ -1,6 +1,8 @@
-import CardInfo from "@/features/dashboard/components/ui/CardInfo";
 import StatusIndicator from "@/shared/components/ui/StatusIndicator";
-import CardPlacedPorfolio from "./CardPlacedPorfolio";
+import CardPlacedPorfolio from "./CardTemplates/CardPlacedPorfolio";
+import CardHighRisk from "./CardTemplates/CardHighRisk";
+import CardMixRisk from "./CardTemplates/CardMixRisk";
+import CardLatePayment from "./CardTemplates/CardLatePayment";
 
 // Dashboard components
 export const DashboardPage = () => {
@@ -15,13 +17,10 @@ export const DashboardPage = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-        <CardInfo>
-
-        </CardInfo>
         <CardPlacedPorfolio />
-        <CardInfo leftBorder="bg-[#16a34a]">
-          <h1>Tuani</h1>
-        </CardInfo>
+        <CardHighRisk />
+        <CardMixRisk />
+        <CardLatePayment />
       </div>
     </div>
   )

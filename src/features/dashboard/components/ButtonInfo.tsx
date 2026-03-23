@@ -2,7 +2,6 @@
 
 import { clsx } from 'clsx';
 import { cva, type VariantProps } from 'class-variance-authority';
-import Badge from '@/shared/components/ui/Badge';
 
 const buttonInfoVariants = cva(
     'w-full flex gap-1 items-center justify-center py-1 px-0 rounded-lg cursor-pointer text-xs border transition-colors duration-200 font-semibold',
@@ -63,11 +62,6 @@ const ButtonInfo = ({
         >
             {icon && <span className="text-[11px]">{icon}</span>}
             <span className=" text-center">{children}</span>
-            {badge && (
-                <Badge className={badgeColor} size='sm' rounded='full'>
-                    {badge}
-                </Badge>
-            )}
         </button>
     );
 };
