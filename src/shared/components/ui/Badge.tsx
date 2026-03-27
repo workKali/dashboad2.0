@@ -10,10 +10,15 @@ const badgeVariants = cva(
             variant: {
                 high: "text-[#ef4444] bg-[#ef444418]",
                 medium: "text-[#f59e0b] bg-[#f59e0b18]",
-                low: "text-[#22c55e] bg-[#22c55e18]"
+                low: "text-[#22c55e] bg-[#22c55e18]",
+                optimum: 'text-[#16a34a] bg-[#16a34a18]'
             },
             rounded: {
                 md: "rounded-[20px]",
+            },
+            size: {
+                sm: "text-10",
+                md: "text-11",
             }
         },
     }

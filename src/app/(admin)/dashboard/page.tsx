@@ -1,5 +1,5 @@
-import { DashboardPage } from '@/features/dashboard/components/DashboardPage';
+import MonitoringPage from '@/features/dashboard/monitoring/MonitoringPage';
 
 export default function Dashboard() {
-  return <DashboardPage />;
+  return <MonitoringPage />;
 }
