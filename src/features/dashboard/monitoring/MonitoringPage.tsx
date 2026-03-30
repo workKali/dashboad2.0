@@ -1,6 +1,8 @@
 import { Dot } from "@/shared/components/ui/Dot"
 import CardInfo from "../components/ui/CardInfo"
 import { Badge } from "@/shared/components/ui/Badge"
+import { ToolbarMonitoring } from "./components/ToolbarMonitoring"
+import TableMonitoring from "./components/TableMonitoring"
 
 const MonitoringPage = () => {
     return (
@@ -29,11 +31,17 @@ const MonitoringPage = () => {
 export default MonitoringPage
 
 const MonitoringContainer = () => {
+    const totalFarms = 23;
+    const reviewedFarms = 23;
+
     return (
         <CardInfo className="bg-white shadow-[0px_1px_4px_rgba(15,31,20,0.04)]">
-            <div className="flex items-baseline gap-1.5">
-
+            <div className="mb-2.5">
+                <p className="text-[#3a5244] text-[10px] font-semibold tracking-wider uppercase">Monitoreo Satelital — Últimas Revisiones por Finca <span className="text-[#7a9e8e] text-[9.5px] font-normal normal-case">{reviewedFarms} de {totalFarms} fincas · Haz clic en una fila para expandir el historial</span></p>
             </div>
+
+            <ToolbarMonitoring />
+            <TableMonitoring />
         </CardInfo>
     )
 }
