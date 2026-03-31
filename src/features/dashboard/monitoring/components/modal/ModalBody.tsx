@@ -1,6 +1,6 @@
 import { farmData } from '../../data/temp';
-import { InfoRow } from '../shared';
 import { CardInfo } from './CardInfo';
+import { InfoRow } from './InfoRow';
 import ModalDetailLastRevision from './ModalDetailLastRevision';
 import ModalHistoryReviews from './ModalHistoryReviews';
 

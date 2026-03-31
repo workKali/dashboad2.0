@@ -1,7 +1,7 @@
 import { farmData } from '../../data/temp';
 import { Badge } from '../Badge';
 import { SatelliteImg, SatelliteLegend } from '../SatelliteImage';
-import { InfoRow } from '../shared';
+import { InfoRow } from './InfoRow';
 
 const ModalDetailLastRevision = () => {
 	return (

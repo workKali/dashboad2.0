@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { cardStyles, valueStyles } from '../shared/styles';
+import { colorPresets } from '../shared/styles';
 
 type Props = {
 	title: string;
@@ -19,24 +19,43 @@ export const CardInfo = ({
 	className,
 }: Props) => {
 	return (
-		<div className={clsx(cardStyles({ variant }), className)}>
-			<p className="text-[10px] text-[rgb(122,158,142)] uppercase tracking-wide">
+		<div
+			className={clsx(
+				'rounded-lg px-3.5 py-2.5',
+				colorPresets.background[variant],
+				className,
+			)}
+		>
+			<p className="text-base text-secondary uppercase tracking-wide">
 				{title}
 			</p>
 
-			<p className={valueStyles({ textVariant })}>
+			<p
+				className={clsx(
+					'text-base',
+					cardPresets.value.colors[textVariant],
+				)}
+			>
 				{value}
 				{unit && (
-					<span
-						className={clsx(
-							'ml-1 text-[11px] font-normal',
-							valueStyles({ textVariant: 'default' }),
-						)}
-					>
+					<span className="ml-1 text-sm font-normal text-primary">
 						{unit}
 					</span>
 				)}
 			</p>
 		</div>
 	);
+};
+
+// Card Presets
+export const cardPresets = {
+	value: {
+		colors: {
+			default: colorPresets.text.value,
+			high: colorPresets.text.high,
+			medium: colorPresets.text.medium,
+			low: colorPresets.text.low,
+			amount: colorPresets.text.amount,
+		},
+	},
 };
