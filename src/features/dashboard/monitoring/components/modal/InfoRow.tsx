@@ -27,7 +27,6 @@ export const InfoRow = ({
 			<span
 				className={clsx(
 					'text-base text-secondary',
-					// infoRowPresets.label.base,
 					infoRowPresets.label.cases[caseType],
 				)}
 			>

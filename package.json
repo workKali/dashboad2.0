@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:tw": "powershell -Command \"$matches = Get-ChildItem -Recurse -Path src -Include *.tsx,*.ts,*.jsx,*.js | Select-String -Pattern '\\[[^\\]]+\\]'; if ($matches) { Write-Output '❌ Tailwind arbitrary values found:'; $matches | ForEach-Object { Write-Output ($_.Path + ':' + $_.LineNumber + ' -> ' + $_.Line.Trim()) }; exit 1 } else { Write-Output '✅ Tailwind clean' }\""
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
