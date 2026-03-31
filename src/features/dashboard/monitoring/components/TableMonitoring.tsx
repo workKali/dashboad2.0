@@ -2,48 +2,74 @@
 import React, { useState } from "react";
 import { clsx } from "clsx";
 import { Collapse } from "@mui/material";
+import { cva } from "class-variance-authority";
 
 interface TableCellProps {
   children: React.ReactNode;
   className?: string;
   isCenter?: boolean;
   isCompact?: boolean;
+  fontSize?: "xs" | "sm" | "base";
+  textColor?:
+    | "primary"
+    | "secondary"
+    | "muted"
+    | "accent"
+    | "warning"
+    | "error"
+    | "success";
 }
+
+const tableCellVariants = cva("", {
+  variants: {
+    isCompact: {
+      true: "px-2 py-1",
+      false: "px-2.5 py-2",
+    },
+    isCenter: {
+      true: "text-center",
+      false: "",
+    },
+    fontSize: {
+      xs: "text-[10px]",
+      sm: "text-[11px]",
+      base: "text-[9.5px]",
+    },
+    textColor: {
+      primary: "text-[#0f1f14]",
+      secondary: "text-[#7a9e8e]",
+      muted: "text-[#3a5244]",
+      accent: "text-[#15803d]",
+      warning: "text-[#d97706]",
+      error: "text-[#ef4444]",
+      success: "text-[#22c55e]",
+    },
+  },
+  defaultVariants: {
+    fontSize: "base",
+    textColor: "primary",
+    isCompact: false,
+    isCenter: false,
+  },
+});
 
 const TableCell = ({
   children,
   className,
   isCenter,
   isCompact,
+  fontSize,
+  textColor,
 }: TableCellProps) => {
   return (
     <td
       className={clsx(
-        isCompact ? "px-2 py-1" : "px-2.5 py-2",
-        isCenter && "text-center",
+        tableCellVariants({ isCompact, isCenter, fontSize, textColor }),
         className,
       )}
     >
       {children}
     </td>
-  );
-};
-
-interface NDVIScaleItemProps {
-  color: string;
-  label: string;
-}
-
-const NDVIScaleItem = ({ color, label }: NDVIScaleItemProps) => {
-  return (
-    <div className="flex items-center gap-[2px]">
-      <div
-        className={clsx("w-2 h-2 rounded-[1px]", `bg-[rgb(${color})]`)}
-      ></div>
-      <span className="text-[7px] text-[rgb(122,158,142)] font-poppins">
-        {label}
-      </span>
-    </div>
   );
 };
 
@@ -76,14 +102,14 @@ const SatelliteImage = ({
           </span>
         </div>
       </div>
-      <div className="flex gap-0.75 items-center">
+      <div className="flex gap-[3px] items-center">
         {[
           { color: "200,230,201", label: "0" },
           { color: "129,199,132", label: "0.3" },
           { color: "46,125,50", label: "0.6" },
           { color: "27,94,32", label: "0.9+" },
         ].map((item, index) => (
-          <div key={index} className="flex items-center gap-0.5">
+          <div key={index} className="flex items-center gap-[2px]">
             <div
               className={clsx(
                 "w-2 h-2 rounded-[1px]",
@@ -103,34 +129,29 @@ const SatelliteImage = ({
 interface SatelliteHistoryTableProps {}
 
 const SatelliteHistoryTable = ({}: SatelliteHistoryTableProps) => {
+  const satelliteHeaders = [
+    "Fecha",
+    "Fase Fenológica",
+    "Estado Salud",
+    "NDVI",
+    "Δ NDVI",
+    "Rend. Est.",
+    "P. Cosecha",
+    "Alerta",
+  ];
+
   return (
     <table className="w-full border-collapse min-w-[580px]">
       <thead>
         <tr>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Fecha
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Fase Fenológica
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Estado Salud
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            NDVI
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Δ NDVI
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Rend. Est.
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            P. Cosecha
-          </th>
-          <th className="text-left text-[8px] font-bold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap">
-            Alerta
-          </th>
+          {satelliteHeaders.map((header) => (
+            <th
+              key={header}
+              className="text-left text-[8px] font-bold text-[#7a9e8e] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap"
+            >
+              {header}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody>
@@ -252,6 +273,50 @@ const ExpandedRow = ({ producer, farm }: ExpandedRowProps) => {
   );
 };
 
+export const tableRowStyles = cva(
+  "border-b border-[#e1e8e7] cursor-pointer border-l-[3px] transition-colors",
+  {
+    variants: {
+      level: {
+        low: "bg-transparent border-l-transparent",
+        medium: "bg-[rgb(248,250,249)] border-l-transparent",
+        high: "bg-[rgba(239,68,68,0.07)] border-l-[#f87171]",
+      },
+      expanded: {
+        true: "",
+        false: "",
+      },
+    },
+
+    compoundVariants: [
+      {
+        level: "low",
+        expanded: false,
+        class: "hover:bg-black/5",
+      },
+      {
+        level: "medium",
+        expanded: false,
+        class: "hover:bg-[rgba(251,191,36,0.15)]",
+      },
+      {
+        level: "high",
+        expanded: false,
+        class: "hover:bg-[rgba(0,0,0,0.03)]",
+      },
+      {
+        expanded: true,
+        class:
+          "bg-[rgb(239,246,255)] border-l-blue-400 hover:bg-[rgb(219,234,254)]",
+      },
+    ],
+
+    defaultVariants: {
+      level: "low",
+      expanded: false,
+    },
+  },
+);
 const TableMonitoring = () => {
   const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
@@ -301,7 +366,9 @@ const TableMonitoring = () => {
             {tableHeaders.map((header, index) => (
               <TableCell
                 key={header + index}
-                className="text-left text-[8.5px] font-semibold text-[#7a9e8e] uppercase tracking-[0.05em] border-b border-[#e1e8e7] bg-[#f8faf9] whitespace-nowrap"
+                className={
+                  "text-left text-[8.5px] font-semibold text-[#7a9e8e] uppercase tracking-[0.05em] border-b border-[#e1e8e7] bg-[#f8faf9] whitespace-nowrap"
+                }
               >
                 {header}
               </TableCell>
@@ -313,18 +380,13 @@ const TableMonitoring = () => {
             <React.Fragment key={row.id}>
               <tr
                 key={row.id}
-                className={clsx(
-                  "border-b border-[#e1e8e7] cursor-pointer border-l-[3px] border-l-[#f87171]",
-                  {
-                    "bg-[rgba(239,68,68,0.07)] hover:bg-[rgba(0,0,0,0.03)]":
-                      expandedRow !== row.id,
-                    "bg-[rgb(239,246,255)] hover:bg-[rgb(219,234,254)]":
-                      expandedRow === row.id,
-                  },
-                )}
+                className={tableRowStyles({
+                  level: "high",
+                  expanded: expandedRow === row.id,
+                })}
                 onClick={() => handleRowClick(row.id)}
               >
-                <TableCell isCenter isCompact>
+                <td className="px-2 py-1 text-center">
                   <span
                     className={clsx(
                       "inline-block text-[#7a9e8e] text-[10px] px-1 font-poppins select-none transition-transform duration-200 ease-in-out",
@@ -333,72 +395,74 @@ const TableMonitoring = () => {
                   >
                     ▶
                   </span>
-                </TableCell>
-                <TableCell className="text-[10px] text-[#0f1f14] font-semibold whitespace-nowrap">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#0f1f14] font-semibold whitespace-nowrap">
                   {row.producer}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#7a9e8e]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#7a9e8e]">
                   {row.phone}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#0f1f14] font-semibold">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#0f1f14] font-semibold">
                   {row.farm}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.region}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.activity}
-                </TableCell>
-                <TableCell className="text-[11px] text-[#0f1f14] font-bold">
+                </td>
+                <td className="px-2.5 py-2 text-[11px] text-[#0f1f14] font-bold">
                   {row.hectares}
-                </TableCell>
-                <TableCell className="text-[11px] text-[#15803d] font-bold">
+                </td>
+                <td className="px-2.5 py-2 text-[11px] text-[#15803d] font-bold">
                   {row.amount}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.phenologicalPhase}
-                </TableCell>
-                <TableCell>
+                </td>
+                <td className="px-2.5 py-2">
                   {getHealthStatusBadge(
                     row.healthStatus,
                     row.healthStatusColor,
                   )}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#d97706] font-bold">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#d97706] font-bold">
                   {row.ndvi}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#ef4444] font-semibold">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#ef4444] font-semibold">
                   {row.ndviChange}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.detectedArea}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.estimatedYield}
-                </TableCell>
-                <TableCell>
+                </td>
+                <td className="px-2.5 py-2">
                   <span className="bg-[#fef3c7] text-[#b45309] rounded-md px-2 py-0.5 text-[10px] font-bold">
                     {row.harvestProbability}
                   </span>
-                </TableCell>
-                <TableCell className="text-[10px] text-[#b45309]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#b45309]">
                   {row.alert}
-                </TableCell>
-                <TableCell>{getRiskBadge(row.risk, row.riskColor)}</TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2">
+                  {getRiskBadge(row.risk, row.riskColor)}
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.cycleStart}
-                </TableCell>
-                <TableCell className="text-[10px] text-[#3a5244]">
+                </td>
+                <td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
                   {row.cycleEnd}
-                </TableCell>
-                <TableCell isCenter isCompact>
+                </td>
+                <td className="px-2 py-1 text-center">
                   <button
                     title="Ver ficha completa"
                     className="bg-[#f0fdf4] border border-[#bbf7d0] rounded-md px-1.5 py-0.5 text-[9.5px] font-semibold text-[#15803d] font-poppins cursor-pointer whitespace-nowrap hover:bg-[#dcfce7] transition-colors"
                   >
                     ↗ Ficha
                   </button>
-                </TableCell>
+                </td>
               </tr>
 
               {expandedRow === row.id && (

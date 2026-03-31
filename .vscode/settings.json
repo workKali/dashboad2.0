@@ -10,6 +10,7 @@
     "tailwindCSS.classFunctions": [
         "tw",
         "clsx",
+        "cva",
         "tw\\.[a-z-]+"
     ]
 }
