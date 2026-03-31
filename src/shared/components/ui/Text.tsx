@@ -61,31 +61,14 @@ const textVariants = cva('font-sans', {
 // Presets for common usage patterns using Tailwind classes
 const presetVariants = {
 	// Global presets
-	cardTitle:
-		'text-base font-semibold uppercase tracking-wider text-secondary',
+	cardTitle: 'text-base font-semibold uppercase tracking-wider text-secondary',
 	modalTitle: 'text-2xl font-extrabold text-primary',
 	alertText: 'text-base font-bold text-amber-600',
 	value: 'text-3xl font-bold text-primary',
 	label: 'text-base font-medium text-secondary',
 	caption: 'text-sm font-normal text-secondary',
-	sectionTitle:
-		'text-8.5px font-semibold uppercase tracking-wide text-secondary',
+	sectionTitle: 'text-8.5px font-semibold uppercase tracking-wide text-secondary',
 	modalSubtitle: 'text-xl text-secondary',
-
-	// Monitoring specific presets
-	tableHeader: 'text-xs font-bold uppercase tracking-wide text-secondary',
-	tableData: 'text-sm font-normal text-secondary',
-	tableDataBold: 'text-sm font-semibold text-secondary',
-	satelliteDate: 'text-7.5px font-semibold text-blue-100',
-	satelliteLegend: 'text-7px font-normal text-secondary',
-	monitoringTitle:
-		'text-base font-semibold uppercase tracking-wider text-secondary',
-	monitoringSubtitle: 'text-sm font-normal text-secondary',
-	alertCardTitle: 'text-base font-bold text-amber-600',
-	alertCardSubtitle: 'text-sm font-normal text-secondary',
-	healthStatusText:
-		'text-base font-semibold uppercase tracking-0.06em text-secondary',
-	dotLabelText: 'text-base font-medium text-secondary',
 };
 
 export interface TextProps extends VariantProps<typeof textVariants> {
