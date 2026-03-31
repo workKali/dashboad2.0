@@ -49,11 +49,11 @@ const MonitoringContainer = () => {
 	const reviewedFarms = 23;
 
 	return (
-		<CardInfo className="bg-white shadow-[0px_1px_4px_rgba(15,31,20,0.04)]">
+		<CardInfo className="bg-white shadow-card">
 			<div className="mb-2.5">
-				<p className="text-[#3a5244] text-[10px] font-semibold tracking-wider uppercase">
+				<p className="text-muted text-[10px] font-semibold tracking-wider uppercase">
 					Monitoreo Satelital — Últimas Revisiones por Finca{' '}
-					<span className="text-[#7a9e8e] text-[9.5px] font-normal normal-case">
+					<span className="text-secondary text-[9.5px] font-normal normal-case">
 						{reviewedFarms} de {totalFarms} fincas · Haz clic en una
 						fila para expandir el historial
 					</span>
@@ -84,15 +84,15 @@ const CardUI = ({
 	subtitle: string;
 }) => {
 	return (
-		<CardInfo topBorder="bg-[linear-gradient(90deg,_rgb(22,163,74),_rgba(22,163,74,0.267))] gap-2">
+		<CardInfo topBorder="bg-gradient-primary gap-2">
 			<div className="mt-1">
-				<p className="text-[rgb(122,158,142)] text-10 font-medium tracking-[0.08em] uppercase mb-[4px]">
+				<p className="text-secondary text-10 font-medium tracking-[0.08em] uppercase mb-[4px]">
 					{title}
 				</p>
-				<span className="text-[rgb(15,31,20)] text-[22px] font-bold leading-[1.1]">
+				<span className="text-primary text-[22px] font-bold leading-[1.1]">
 					{value}
 				</span>
-				<p className="text-[rgb(122,158,142)] text-10 mt-[3px] font-light m-0">
+				<p className="text-secondary text-10 mt-[3px] font-light m-0">
 					{subtitle}
 				</p>
 			</div>
@@ -102,8 +102,8 @@ const CardUI = ({
 
 const UIStateHealth = () => {
 	return (
-		<CardInfo topBorder="bg-[#16a34a]" className="gap-2">
-			<p className="text-10 font-semibold text-[rgb(122,158,142)] uppercase tracking-[0.06em] m-0">
+		<CardInfo topBorder="bg-green-600" className="gap-2">
+			<p className="text-10 font-semibold text-secondary uppercase tracking-[0.06em] m-0">
 				Estado de Salud
 			</p>
 
@@ -133,19 +133,19 @@ const DotText = ({ label, color }: { label: string; color: string }) => {
 	return (
 		<div className="flex items-center gap-1">
 			<Dot rounded="xs" color={color as any} />
-			<span className="text-10 font-medium text-[#3a5244]">{label}</span>
+			<span className="text-10 font-medium text-muted">{label}</span>
 		</div>
 	);
 };
 
 const AlertsCard = () => {
 	return (
-		<CardInfo className="gap-0.5 shadow-[0px_1px_4px_rgba(15,31,20,0.04)] min-w-[280px]">
+		<CardInfo className="gap-0.5 shadow-card min-w-[280px]">
 			<div className="flex-1">
-				<p className="text-[#0f1f14] text-11 mb-0.5 font-bold">
+				<p className="text-primary text-11 mb-0.5 font-bold">
 					Alertas por Teledetección
 				</p>
-				<p className="text-[#7a9e8e] text-10 mb-2.5">
+				<p className="text-secondary text-10 mb-2.5">
 					7 fincas con alerta activa
 				</p>
 				<div className="gap-1.5 flex flex-col max-h-[360px] overflow-y-auto">
@@ -227,7 +227,7 @@ const AlertsCard = () => {
 						area="620 ha"
 					/>
 				</div>
-				<p className="text-[#7a9e8e] text-10 mt-2 text-center shrink-0">
+				<p className="text-secondary text-10 mt-2 text-center shrink-0">
 					↕ 2 alertas más
 				</p>
 			</div>
@@ -249,10 +249,10 @@ const AlertCard = ({
 	area: string;
 }) => {
 	return (
-		<div className="shrink-0 border border-[#f59e0b] bg-[#fef3c7] rounded-lg py-3 px-2 cursor-pointer shadow-none transition-shadow hover:shadow-md">
-			<p className="text-10 font-bold text-[#92400e]">{title}</p>
-			<p className="text-middle9 text-[#b45309]">{subtitle}</p>
-			<p className="text-[#7a9e8e] text-middle9">
+		<div className="shrink-0 border border-warning bg-amber-100 rounded-lg py-3 px-2 cursor-pointer shadow-none transition-shadow hover:shadow-md">
+			<p className="text-10 font-bold text-amber-800">{title}</p>
+			<p className="text-middle9 text-amber-700">{subtitle}</p>
+			<p className="text-secondary text-middle9">
 				{farm} · {crop} · {area}
 			</p>
 		</div>

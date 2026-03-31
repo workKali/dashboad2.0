@@ -12,7 +12,7 @@ const ModalMonitoring: React.FC = () => {
 	return (
 		<Modal open={isOpen} onClose={closeModal} closeAfterTransition>
 			<div className="flex items-center justify-center min-h-screen p-4">
-				<div className="bg-white rounded-2xl w-170 max-h-[88vh] overflow-auto shadow-[0px_24px_80px_rgba(0,0,0,0.25)] border border-[rgb(225,232,231)]">
+				<div className="bg-white rounded-2xl w-170 max-h-[88vh] overflow-auto shadow-modal border border-gray-200">
 					<ModalHeader />
 					<ModalBody />
 				</div>  

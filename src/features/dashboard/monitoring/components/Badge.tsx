@@ -13,20 +13,20 @@ export const badgeStyles = cva(
 	{
 		variants: {
 			variant: {
-				warning: 'bg-[rgba(217,119,6,0.133)] text-[rgb(217,119,6)]',
+				warning: 'bg-opacity-amber-light text-warning',
 
-				harvest: 'bg-[rgb(254,243,199)] text-[rgb(180,83,9)]',
+				harvest: 'bg-amber-50 text-amber-700',
 
 				neutral:
-					'bg-[rgb(248,250,249)] text-[rgb(58,82,68)] font-semibold',
+					'bg-gray-50 text-muted font-semibold',
 
-				danger: 'bg-[rgb(254,226,226)] text-[rgb(220,38,38)]',
+				danger: 'bg-red-100 text-red-600',
 
-				attention: 'text-[rgb(217,119,6)] bg-[rgba(217,119,6,0.094)]',
+				attention: 'text-warning bg-opacity-amber-medium',
 
-				optimum: 'text-[#16a34a] bg-[rgba(22,163,74,0.094)]',
+				optimum: 'text-green-600 bg-opacity-green-medium',
 
-				good: 'text-[rgb(34,197,94)] bg-[rgba(220,38,38,0.094)]',
+				good: 'text-success bg-opacity-green-dark',
 			},
 			weight: {
 				normal: 'font-semibold',

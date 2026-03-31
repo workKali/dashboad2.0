@@ -37,13 +37,13 @@ const tableCellVariants = cva('', {
 			base: 'text-[9.5px]',
 		},
 		textColor: {
-			primary: 'text-[#0f1f14]',
-			secondary: 'text-[#7a9e8e]',
-			muted: 'text-[#3a5244]',
-			accent: 'text-[#15803d]',
-			warning: 'text-[#d97706]',
-			error: 'text-[#ef4444]',
-			success: 'text-[#22c55e]',
+			primary: 'text-primary',
+			secondary: 'text-secondary',
+			muted: 'text-muted',
+			accent: 'text-accent',
+			warning: 'text-warning',
+			error: 'text-error',
+			success: 'text-success',
 		},
 	},
 	defaultVariants: {
@@ -95,7 +95,7 @@ const SatelliteHistoryTable = ({}: SatelliteHistoryTableProps) => {
 					{satelliteHeaders.map((header) => (
 						<th
 							key={header}
-							className="text-left text-[8px] font-bold text-[#7a9e8e] font-poppins uppercase tracking-[0.05em] p-2 border-b border-[rgb(191,219,254)] whitespace-nowrap"
+							className="text-left text-[8px] font-bold text-secondary font-poppins uppercase tracking-[0.05em] p-2 border-b border-blue-200 whitespace-nowrap"
 						>
 							{header}
 						</th>
@@ -103,66 +103,66 @@ const SatelliteHistoryTable = ({}: SatelliteHistoryTableProps) => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr className="bg-transparent border-l-2 border-[rgb(248,113,113)]">
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] whitespace-nowrap font-semibold">
+				<tr className="bg-transparent border-l-2 border-red-400">
+					<td className="p-2 text-[9.5px] font-poppins text-muted whitespace-nowrap font-semibold">
 						2024-09-15
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] whitespace-nowrap">
+					<td className="p-2 text-[9.5px] font-poppins text-muted whitespace-nowrap">
 						Desarrollo
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgba(217,119,6,0.133)] text-[rgb(217,119,6)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
+						<span className="bg-opacity-amber-light text-warning rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
 							Requiere atención
 						</span>
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] font-bold">
+					<td className="p-2 text-[9.5px] font-poppins text-muted font-bold">
 						0.540
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(220,38,38)] font-bold">
+					<td className="p-2 text-[9.5px] font-poppins text-red-600 font-bold">
 						-16
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)]">
+					<td className="p-2 text-[9.5px] font-poppins text-muted">
 						5.8 t/ha
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgb(254,243,199)] text-[rgb(180,83,9)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-bold">
+						<span className="bg-amber-50 text-amber-700 rounded px-1.5 py-0.5 text-[9px] font-poppins font-bold">
 							64%
 						</span>
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgb(254,226,226)] text-[rgb(220,38,38)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
+						<span className="bg-red-100 text-red-600 rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
 							⚠ Déficit hídrico severo
 						</span>
 					</td>
 				</tr>
-				<tr className="bg-[rgba(59,130,246,0.04)] border-l-2 border-[rgb(248,113,113)]">
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] whitespace-nowrap font-semibold">
+				<tr className="bg-opacity-blue-light border-l-2 border-red-400">
+					<td className="p-2 text-[9.5px] font-poppins text-muted whitespace-nowrap font-semibold">
 						2024-09-01
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] whitespace-nowrap">
+					<td className="p-2 text-[9.5px] font-poppins text-muted whitespace-nowrap">
 						Establecimiento
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgba(34,197,94,0.133)] text-[rgb(34,197,94)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
+						<span className="bg-opacity-green-light text-success rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
 							Bueno
 						</span>
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)] font-bold">
+					<td className="p-2 text-[9.5px] font-poppins text-muted font-bold">
 						0.620
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(220,38,38)] font-bold">
+					<td className="p-2 text-[9.5px] font-poppins text-red-600 font-bold">
 						-6
 					</td>
-					<td className="p-2 text-[9.5px] font-poppins text-[rgb(58,82,68)]">
+					<td className="p-2 text-[9.5px] font-poppins text-muted">
 						6.8 t/ha
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgb(254,243,199)] text-[rgb(180,83,9)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-bold">
+						<span className="bg-amber-50 text-amber-700 rounded px-1.5 py-0.5 text-[9px] font-poppins font-bold">
 							78%
 						</span>
 					</td>
 					<td className="p-2">
-						<span className="bg-[rgb(254,226,226)] text-[rgb(220,38,38)] rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
+						<span className="bg-red-100 text-red-600 rounded px-1.5 py-0.5 text-[9px] font-poppins font-semibold whitespace-nowrap">
 							⚠ Estrés hídrico leve
 						</span>
 					</td>
@@ -177,7 +177,7 @@ interface NDVIEvolutionProps {}
 const NDVIEvolution = ({}: NDVIEvolutionProps) => {
 	return (
 		<div className="shrink-0">
-			<p className="m-0 mb-1 text-[8.5px] font-semibold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em]">
+			<p className="m-0 mb-1 text-[8.5px] font-semibold text-secondary font-poppins uppercase tracking-[0.05em]">
 				Evolución NDVI
 			</p>
 		</div>
@@ -196,18 +196,18 @@ const ExpandedRow = ({
 	onFarmDetailClick,
 }: ExpandedRowProps) => {
 	return (
-		<tr className="bg-[rgb(239,246,255)] animate-in slide-in-from-top-2 duration-300">
+		<tr className="bg-blue-50 animate-in slide-in-from-top-2 duration-300">
 			<td colSpan={20} className="p-0">
-				<div className="py-3 px-4 border-y border-[rgb(191,219,254)]">
+				<div className="py-3 px-4 border-y border-blue-200">
 					<div className="flex items-center gap-2.5 mb-2.5">
-						<span className="text-[10px] font-bold text-[rgb(37,99,235)] font-poppins uppercase tracking-[0.07em]">
+						<span className="text-[10px] font-bold text-blue-600 font-poppins uppercase tracking-[0.07em]">
 							📡 Historial Satelital — {producer} · {farm}
 						</span>
-						<span className="text-[10px] text-[rgb(122,158,142)] font-poppins">
+						<span className="text-[10px] text-secondary font-poppins">
 							2 revisiones
 						</span>
 						<button
-							className="ml-auto bg-[rgb(239,246,255)] border border-[rgb(147,197,253)] rounded-[7px] px-2.5 py-0.5 text-[9.5px] font-semibold text-[rgb(37,99,235)] font-poppins cursor-pointer flex items-center gap-1.5 hover:bg-[rgb(219,234,254)] transition-colors"
+							className="ml-auto bg-blue-50 border border-blue-300 rounded-[7px] px-2.5 py-0.5 text-[9.5px] font-semibold text-blue-600 font-poppins cursor-pointer flex items-center gap-1.5 hover:bg-blue-100 transition-colors"
 							onClick={() =>
 								onFarmDetailClick({ producer, farm })
 							}
@@ -242,7 +242,7 @@ const SatelliteImage = ({
 }: SatelliteImageProps) => {
 	return (
 		<div className="shrink-0 flex flex-col gap-1">
-			<p className="m-0 text-[8.5px] font-semibold text-[rgb(122,158,142)] font-poppins uppercase tracking-[0.05em]">
+			<p className="m-0 text-[8.5px] font-semibold text-secondary font-poppins uppercase tracking-[0.05em]">
 				Imagen Satelital NDVI
 			</p>
 			<SatelliteImg date="2024-03-01" />
@@ -254,13 +254,13 @@ const SatelliteImage = ({
 };
 
 export const tableRowStyles = cva(
-	'border-b border-[#e1e8e7] cursor-pointer border-l-[3px] transition-colors',
+	'border-b border-gray-200 cursor-pointer border-l-[3px] transition-colors',
 	{
 		variants: {
 			level: {
 				low: 'bg-transparent border-l-transparent',
-				medium: 'bg-[rgb(248,250,249)] border-l-transparent',
-				high: 'bg-[rgba(239,68,68,0.07)] border-l-[#f87171]',
+				medium: 'bg-gray-50 border-l-transparent',
+				high: 'bg-opacity-green-dark border-l-red-400',
 			},
 			expanded: {
 				true: '',
@@ -277,16 +277,16 @@ export const tableRowStyles = cva(
 			{
 				level: 'medium',
 				expanded: false,
-				class: 'hover:bg-[rgba(251,191,36,0.15)]',
+				class: 'hover:bg-amber-100',
 			},
 			{
 				level: 'high',
 				expanded: false,
-				class: 'hover:bg-[rgba(0,0,0,0.03)]',
+				class: 'hover:bg-black/5',
 			},
 			{
 				expanded: true,
-				class: 'bg-[rgb(239,246,255)] border-l-blue-400 hover:bg-[rgb(219,234,254)]',
+				class: 'bg-blue-50 border-l-blue-400 hover:bg-blue-100',
 			},
 		],
 
@@ -314,9 +314,9 @@ const TableMonitoring = () => {
 
 	const getHealthStatusBadge = (status: string, color: string) => {
 		const colorClasses = {
-			optimal: 'bg-[rgba(34,197,94,0.133)] text-[#22c55e]',
-			good: 'bg-[rgba(59,130,246,0.133)] text-[#3b82f6]',
-			warning: 'bg-[rgba(217,119,6,0.133)] text-[#d97706]',
+			optimal: 'bg-opacity-green-light text-success',
+			good: 'bg-opacity-blue-light text-info',
+			warning: 'bg-opacity-amber-light text-warning',
 		};
 		return (
 			<span
@@ -329,9 +329,9 @@ const TableMonitoring = () => {
 
 	const getRiskBadge = (risk: string, color: string) => {
 		const colorClasses = {
-			low: 'text-[#22c55e]',
-			medium: 'text-[#d97706]',
-			high: 'text-[#dc2626]',
+			low: 'text-success',
+			medium: 'text-warning',
+			high: 'text-red-600',
 		};
 		return (
 			<span
@@ -351,7 +351,7 @@ const TableMonitoring = () => {
 							<TableCell
 								key={header + index}
 								className={
-									'text-left text-[8.5px] font-semibold text-[#7a9e8e] uppercase tracking-[0.05em] border-b border-[#e1e8e7] bg-[#f8faf9] whitespace-nowrap'
+									'text-left text-[8.5px] font-semibold text-secondary uppercase tracking-[0.05em] border-b border-gray-200 bg-gray-50 whitespace-nowrap'
 								}
 							>
 								{header}
@@ -373,7 +373,7 @@ const TableMonitoring = () => {
 								<td className="px-2 py-1 text-center">
 									<span
 										className={clsx(
-											'inline-block text-[#7a9e8e] text-[10px] px-1 font-poppins select-none transition-transform duration-200 ease-in-out',
+											'inline-block text-secondary text-[10px] px-1 font-poppins select-none transition-transform duration-200 ease-in-out',
 											expandedRow === row.id &&
 												'rotate-90',
 										)}
@@ -381,28 +381,28 @@ const TableMonitoring = () => {
 										▶
 									</span>
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#0f1f14] font-semibold whitespace-nowrap">
+								<td className="px-2.5 py-2 text-[10px] text-primary font-semibold whitespace-nowrap">
 									{row.producer}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#7a9e8e]">
+								<td className="px-2.5 py-2 text-[10px] text-secondary">
 									{row.phone}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#0f1f14] font-semibold">
+								<td className="px-2.5 py-2 text-[10px] text-primary font-semibold">
 									{row.farm}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.region}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.activity}
 								</td>
-								<td className="px-2.5 py-2 text-[11px] text-[#0f1f14] font-bold">
+								<td className="px-2.5 py-2 text-[11px] text-primary font-bold">
 									{row.hectares}
 								</td>
-								<td className="px-2.5 py-2 text-[11px] text-[#15803d] font-bold">
+								<td className="px-2.5 py-2 text-[11px] text-accent font-bold">
 									{row.amount}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.phenologicalPhase}
 								</td>
 								<td className="px-2.5 py-2">
@@ -411,39 +411,39 @@ const TableMonitoring = () => {
 										row.healthStatusColor,
 									)}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#d97706] font-bold">
+								<td className="px-2.5 py-2 text-[10px] text-warning font-bold">
 									{row.ndvi}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#ef4444] font-semibold">
+								<td className="px-2.5 py-2 text-[10px] text-error font-semibold">
 									{row.ndviChange}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.detectedArea}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.estimatedYield}
 								</td>
 								<td className="px-2.5 py-2">
-									<span className="bg-[#fef3c7] text-[#b45309] rounded-md px-2 py-0.5 text-[10px] font-bold">
+									<span className="bg-green-100 text-green-700 rounded-md px-2 py-0.5 text-[10px] font-bold">
 										{row.harvestProbability}
 									</span>
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#b45309]">
+								<td className="px-2.5 py-2 text-[10px] text-amber-700">
 									{row.alert}
 								</td>
 								<td className="px-2.5 py-2">
 									{getRiskBadge(row.risk, row.riskColor)}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.cycleStart}
 								</td>
-								<td className="px-2.5 py-2 text-[10px] text-[#3a5244]">
+								<td className="px-2.5 py-2 text-[10px] text-muted">
 									{row.cycleEnd}
 								</td>
 								<td className="px-2 py-1 text-center">
 									<button
 										title="Ver ficha completa"
-										className="bg-[#f0fdf4] border border-[#bbf7d0] rounded-md px-1.5 py-0.5 text-[9.5px] font-semibold text-[#15803d] font-poppins cursor-pointer whitespace-nowrap hover:bg-[#dcfce7] transition-colors"
+										className="bg-green-50 border border-green-200 rounded-md px-1.5 py-0.5 text-[9.5px] font-semibold text-accent font-poppins cursor-pointer whitespace-nowrap hover:bg-green-100 transition-colors"
 										onClick={(e) => {
 											e.stopPropagation();
 											handleFarmDetailClick(row);

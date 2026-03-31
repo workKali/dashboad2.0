@@ -5,8 +5,8 @@ const containerVariant = cva(
     {
         variants: {
             variant: {
-                live: 'text-[#15803d] bg-[#f0fdf4] border-[#bbf7d0] rounded-md',
-                approved: 'text-[#92400e] bg-[#fef3c7] border-[#fde68a] rounded-2xl'
+                live: 'text-accent bg-green-50 border-green-200 rounded-md',
+                approved: 'text-amber-800 bg-amber-100 border-amber-200 rounded-2xl'
             },
             size: {
                 sm: 'text-xs py-0.5 px-2',
@@ -25,8 +25,8 @@ const dotVariant = cva(
     {
         variants: {
             variant: {
-                live: 'bg-[#16a34a]',
-                approved: 'bg-[#d97706]'
+                live: 'bg-green-600',
+                approved: 'bg-warning'
             }
         }
     }

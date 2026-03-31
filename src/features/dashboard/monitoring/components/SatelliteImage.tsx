@@ -13,7 +13,7 @@ export const SatelliteImg = ({
 	return (
 		<div
 			className={clsx(
-				'relative w-[140px] h-[110px] rounded-[6px] overflow-hidden bg-[rgb(239,246,255)] border border-[rgb(191,219,254)]',
+				'relative w-[140px] h-[110px] rounded-[6px] overflow-hidden bg-blue-50 border border-blue-200',
 				classNameContainer,
 			)}
 		>
@@ -22,11 +22,11 @@ export const SatelliteImg = ({
 				srcSet={imageUrl}
 				className="w-full h-full object-cover object-center"
 			/>
-			<div className="absolute bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.45)] p-[2px_5px] flex justify-between items-center">
+			<div className="absolute bottom-0 left-0 right-0 bg-opacity-black-medium p-[2px_5px] flex justify-between items-center">
 				<span className="text-[7.5px] text-white font-poppins font-semibold">
 					NDVI
 				</span>
-				<span className="text-[7.5px] text-[rgb(170,238,255)] font-poppins">
+				<span className="text-[7.5px] text-cyan-300 font-poppins">
 					{date}
 				</span>
 			</div>
@@ -39,10 +39,10 @@ interface SatelliteLegendProps {
 }
 export const SatelliteLegend = ({ values }: SatelliteLegendProps) => {
 	const indexColor = [
-		'bg-[rgb(200,230,201)]',
-		'bg-[rgb(129,199,132)]',
-		'bg-[rgb(46,125,50)]',
-		'bg-[rgb(27,94,32)]',
+		'bg-green-200',
+		'bg-green-400',
+		'bg-green-700',
+		'bg-green-800',
 	];
 
 	return (
@@ -50,7 +50,7 @@ export const SatelliteLegend = ({ values }: SatelliteLegendProps) => {
 			{values.map((value, index) => (
 				<React.Fragment key={index}>
 					<div className={clsx('w-2 h-2', indexColor[index])}></div>
-					<span className="text-[7px] text-[rgb(122,158,142)] font-poppins">
+					<span className="text-[7px] text-secondary font-poppins">
 						{value}
 					</span>
 				</React.Fragment>

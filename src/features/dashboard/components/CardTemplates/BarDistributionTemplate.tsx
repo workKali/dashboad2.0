@@ -52,16 +52,16 @@ export const DefaultDetailBar = ({ label, percentage, variantBadge, money, badge
             </div>
             <Badge variant={variantBadge as any} className={badgeClassNames}>{percentage}%</Badge>
             {money &&
-                <span className="text-11 text-[#4b504e]">{money}</span>
+                <span className="text-xl text-gray-600">{money}</span>
             }
         </div>
     );
 }
 
 const riskLevelColor = {
-    low: 'bg-[#22c55e]',
-    medium: 'bg-[#f59e0b]',
-    high: 'bg-[#ef4444]'
+    low: 'bg-green-500',
+    medium: 'bg-amber-500',
+    high: 'bg-red-500'
 }
 export const DetailBarRiskScore = ({ size, riskLevel, label, money, percentage }: {
     size?: 'sm' | 'md',
@@ -69,10 +69,10 @@ export const DetailBarRiskScore = ({ size, riskLevel, label, money, percentage }
     label: string,
     money?: string,
     percentage: number,
-}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="low" money={money} labelClassName={`text-[#3a5244] font-semibold ${size === 'sm' ? 'text-10' : 'text-11'}`} dotClassName={riskLevelColor[riskLevel]} />
+}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="low" money={money} labelClassName={`text-gray-700 font-semibold ${size === 'sm' ? 'text-base' : 'text-xl'}`} dotClassName={riskLevelColor[riskLevel]} />
 
 export const DetailBarSecondary = ({ size, label, percentage }: {
     size: 'sm' | 'md',
     label: string,
     percentage: number,
-}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="medium" labelClassName={`text-[#3a5244] font-normal ${size === 'sm' ? 'text-9' : 'text-10'}`} />
+}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="medium" labelClassName={`text-gray-700 font-normal ${size === 'sm' ? 'text-9px' : 'text-base'}`} />

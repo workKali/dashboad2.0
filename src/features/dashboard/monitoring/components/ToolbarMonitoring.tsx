@@ -12,7 +12,7 @@ const SearchInput = ({ placeholder, value, onChange }: {
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="flex-1 min-w-[160px] bg-transparent border border-[#e1e8e7] rounded-lg px-2.5 py-1 text-[10.5px] text-[#0f1f14] outline-none focus:border-[#16a34a] transition-colors"
+        className="flex-1 min-w-[160px] bg-transparent border border-gray-200 rounded-lg px-2.5 py-1 text-[10.5px] text-primary outline-none focus:border-green-600 transition-colors"
     />
 )
 
@@ -24,11 +24,11 @@ const FilterSelect = ({ label, options, value, onChange }: {
     onChange: (value: string) => void
 }) => (
     <div className="flex items-center gap-1.5">
-        <span className="text-[10px] text-[#7a9e8e] font-medium">{label}:</span>
+        <span className="text-[10px] text-secondary font-medium">{label}:</span>
         <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className="bg-white border border-[#e1e8e7] rounded-lg px-2 py-1 text-[10px] text-[#0f1f14] outline-none cursor-pointer focus:border-[#16a34a] transition-colors"
+            className="bg-white border border-gray-200 rounded-lg px-2 py-1 text-[10px] text-primary outline-none cursor-pointer focus:border-green-600 transition-colors"
         >
             {options.map(option => (
                 <option key={option.value} value={option.value}>
@@ -77,7 +77,7 @@ export const ToolbarMonitoring = () => {
     ]
 
     return (
-        <div className="flex gap-2 items-center flex-wrap mb-2.5 bg-[#f8faf9] border border-[#e1e8e7] rounded-xl p-2 px-3">
+        <div className="flex gap-2 items-center flex-wrap mb-2.5 bg-gray-50 border border-gray-200 rounded-xl p-2 px-3">
             <SearchInput
                 placeholder="Buscar finca, productor, región…"
                 value={searchValue}
@@ -112,7 +112,7 @@ export const ToolbarMonitoring = () => {
                 onChange={setSortBy}
             />
 
-            <span className="text-[10px] text-[#7a9e8e] ml-auto whitespace-nowrap">
+            <span className="text-[10px] text-secondary ml-auto whitespace-nowrap">
                 23 de 23 fincas
             </span>
         </div>

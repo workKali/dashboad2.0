@@ -8,10 +8,10 @@ const buttonInfoVariants = cva(
     {
         variants: {
             variant: {
-                'high-risk': 'bg-[rgb(254,242,242)] border-[rgb(254,202,202)] text-[rgb(220,38,38)]',
-                'high-emission': 'bg-[rgb(248,250,252)] border-[rgb(203,213,225)] text-[rgb(100,116,139)]',
-                'water-deficit': 'bg-[rgb(240,249,255)] border-[rgb(186,230,253)] text-[rgb(14,165,233)]',
-                'deforestation': 'bg-[rgb(255,241,241)] border-[rgb(254,202,202)] text-[rgb(248,113,113)]'
+                'high-risk': 'bg-red-50 border-red-200 text-red-600',
+                'high-emission': 'bg-slate-50 border-slate-300 text-slate-500',
+                'water-deficit': 'bg-blue-50 border-blue-200 text-sky-500',
+                'deforestation': 'bg-red-50 border-red-200 text-red-400'
             }
         },
         defaultVariants: {
@@ -21,10 +21,10 @@ const buttonInfoVariants = cva(
 );
 
 const badgeColorMap = {
-    'high-risk': 'bg-[rgb(239,68,68)] text-white',
-    'high-emission': 'bg-[rgb(100,116,139)] text-white',
-    'water-deficit': 'bg-[rgb(14,165,233)] text-white',
-    'deforestation': 'bg-[rgb(239,68,68)] text-white'
+    'high-risk': 'bg-red-600 text-white',
+    'high-emission': 'bg-slate-500 text-white',
+    'water-deficit': 'bg-sky-500 text-white',
+    'deforestation': 'bg-red-600 text-white'
 } as const;
 
 export type ButtonInfoProps = VariantProps<typeof buttonInfoVariants> & {

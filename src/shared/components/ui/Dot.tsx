@@ -8,10 +8,10 @@ const dotVariants = cva("w-1.5 h-1.5 shrink-0 inline-block", {
             xs: "rounded-xs"
         },
         color:{
-            optimum: 'bg-[#16a34a]',
-            low: 'bg-[#22c55e]',
-            medium: 'bg-[#f59e0b]',
-            high: 'bg-[#ef4444]'
+            optimum: 'bg-green-600',
+            low: 'bg-success',
+            medium: 'bg-warning',
+            high: 'bg-error'
         }
     },
     defaultVariants: {

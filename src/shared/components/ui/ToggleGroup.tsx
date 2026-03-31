@@ -29,11 +29,11 @@ const ToggleGroup = ({
     };
 
     const baseButtonClasses = "border-none rounded-md px-2.5 py-1 cursor-pointer text-xs font-poppins font-semibold transition-all duration-150 whitespace-nowrap";
-    const activeClasses = "bg-[rgb(22,163,74)] text-white";
-    const inactiveClasses = "bg-transparent text-[rgb(122,158,142)]";
+    const activeClasses = "bg-green-600 text-white";
+    const inactiveClasses = "bg-transparent text-secondary";
 
     return (
-        <div className={clsx("flex items-center bg-[rgb(248,250,249)] border border-[rgb(225,232,231)] rounded-lg p-0.5 gap-px", className)}>
+        <div className={clsx("flex items-center bg-gray-50 border border-gray-200 rounded-lg p-0.5 gap-px", className)}>
             {options.map((option) => (
                 <button
                     key={option.value}
