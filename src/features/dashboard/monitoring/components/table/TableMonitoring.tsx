@@ -1,9 +1,10 @@
-import { flexRender, getCoreRowModel, getExpandedRowModel, useReactTable, Table } from '@tanstack/react-table';
+import { flexRender, Table } from '@tanstack/react-table';
 import TableCell from './TableCell';
 import React from 'react';
 import { tableRowStyles } from '../shared/monitoringTableRowVariants';
-import ExpandedRow from '../ExpandedRowContent';
+// import ExpandedRow from '../ExpandedRowContent';
 import { FarmData } from '../../types/tableMonitoring.types';
+import ExpandedRow from './ExpandedRowContent';
 
 interface TableMonitoringProps {
 	table: Table<FarmData>;

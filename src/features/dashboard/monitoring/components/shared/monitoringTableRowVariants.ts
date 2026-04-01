@@ -29,6 +29,16 @@ export const tableRowStyles = cva('border-b border-gray-200 cursor-pointer borde
 			class: 'hover:bg-black/5',
 		},
 		{
+			level: 'low',
+			expanded: true,
+			class: '!border-blue-400',
+		},
+		{
+			level: 'medium',
+			expanded: true,
+			class: '!border-blue-400',
+		},
+		{
 			expanded: true,
 			class: '!bg-blue-50 !hover:bg-blue-100',
 		},

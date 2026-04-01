@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { mockData } from '../../data/temp';
 import TableMonitoring from './TableMonitoring';
 import { columnsMonitoring } from './columnsMonitoring';
@@ -10,14 +10,18 @@ import {
 	getExpandedRowModel,
 	getFilteredRowModel,
 	getSortedRowModel,
-	Row,
 	ExpandedState,
 } from '@tanstack/react-table';
 import { FarmData } from '../../types/tableMonitoring.types';
 
 export const TableMonitoringContainer = () => {
 	const data = useMemo(() => mockData, []);
+	const [isMounted, setIsMounted] = useState(false);
 	const [expanded, setExpanded] = useState<ExpandedState>({});
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
 
 	const table = useReactTable<FarmData>({
 		data,
@@ -28,10 +32,12 @@ export const TableMonitoringContainer = () => {
 		getSortedRowModel: getSortedRowModel(),
 		getRowCanExpand: () => true,
 		state: {
-			expanded,
+			expanded: isMounted ? expanded : {},
 		},
 		onExpandedChange: setExpanded,
 	});
+
+	if (!isMounted) return null;
 
 	return (
 		<>

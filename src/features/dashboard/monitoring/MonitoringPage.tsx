@@ -2,7 +2,15 @@ import { Dot } from '@/shared/components/ui/Dot';
 import CardInfo from '../components/ui/CardInfo';
 import { Badge } from '@/shared/components/ui/Badge';
 import ModalMonitoring from './components/modal/ModalMonitoring';
-import { TableMonitoringContainer } from './components/table/TableMonitoringContainer';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const TableMonitoringContainer = dynamic(
+	() => import('./components/table/TableMonitoringContainer').then((mod) => mod.TableMonitoringContainer),
+	{
+		ssr: true,
+	},
+);
 
 const MonitoringPage = () => {
 	return (
@@ -43,9 +51,9 @@ const MonitoringContainer = () => {
 				</p>
 			</div>
 
-			<TableMonitoringContainer />
-			{/* <TanStackTableExample /> */}
-			{/* <TableMonitoring /> */}
+			<Suspense>
+				<TableMonitoringContainer />
+			</Suspense>
 		</CardInfo>
 	);
 };

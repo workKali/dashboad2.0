@@ -1,6 +1,6 @@
-import { useModalStore } from '../store/modalStore';
-import { SatelliteImg, SatelliteLegend } from './SatelliteImage';
-import SatelliteHistoryTable from './table/SatelliteHistoryTable';
+import { useModalStore } from '../../store/modalStore';
+import { SatelliteImg, SatelliteLegend } from '../SatelliteImage';
+import SatelliteHistoryTable from './SatelliteHistoryTable';
 
 interface ExpandedRowProps {
 	producer: string;
