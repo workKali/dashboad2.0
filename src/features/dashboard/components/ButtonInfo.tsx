@@ -60,7 +60,7 @@ const ButtonInfo = ({
             onClick={onClick}
             disabled={disabled}
         >
-            {icon && <span className="text-[11px]">{icon}</span>}
+            {icon && <span className="text-xl">{icon}</span>}
             <span className=" text-center">{children}</span>
         </button>
     );

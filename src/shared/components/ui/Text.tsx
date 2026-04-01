@@ -67,7 +67,7 @@ const presetVariants = {
 	value: 'text-3xl font-bold text-primary',
 	label: 'text-base font-medium text-secondary',
 	caption: 'text-sm font-normal text-secondary',
-	sectionTitle: 'text-8.5px font-semibold uppercase tracking-wide text-secondary',
+	sectionTitle: 'text-2xs font-semibold uppercase tracking-wide text-secondary',
 	modalSubtitle: 'text-xl text-secondary',
 };
 

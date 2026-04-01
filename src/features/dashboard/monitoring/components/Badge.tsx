@@ -6,7 +6,7 @@ export const badgeStyles = cva(
 		'inline-flex items-center gap-1',
 		'rounded-[7px]',
 		'px-[10px] py-[3px]',
-		'text-[10px]',
+		'text-base',
 		'font-poppins font-bold',
 		'whitespace-nowrap',
 	],

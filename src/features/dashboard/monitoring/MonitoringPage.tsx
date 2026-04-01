@@ -10,24 +10,12 @@ const MonitoringPage = () => {
 		<div className="flex flex-col gap-2.5">
 			<h1>Monitoring Page</h1>
 			<div className="grid grid-cols-4 gap-2.5">
-				<CardUI
-					title="Fincas con Monitoreo Activo"
-					value="23"
-					subtitle="49% de la cartera"
-				/>
+				<CardUI title="Fincas con Monitoreo Activo" value="23" subtitle="49% de la cartera" />
 
 				<UIStateHealth />
 
-				<CardUI
-					title="Prob. Cosecha Exitosa"
-					value="85%"
-					subtitle="Promedio de cosecha"
-				/>
-				<CardUI
-					title="Alertas Teledetección Activas"
-					value="7"
-					subtitle="23 fincas revisadas"
-				/>
+				<CardUI title="Prob. Cosecha Exitosa" value="85%" subtitle="Promedio de cosecha" />
+				<CardUI title="Alertas Teledetección Activas" value="7" subtitle="23 fincas revisadas" />
 			</div>
 
 			<div className="flex gap-3 items-stretch">
@@ -51,11 +39,10 @@ const MonitoringContainer = () => {
 	return (
 		<CardInfo className="bg-white shadow-card">
 			<div className="mb-2.5">
-				<p className="text-muted text-[10px] font-semibold tracking-wider uppercase">
+				<p className="text-muted text-xs font-semibold tracking-wider uppercase">
 					Monitoreo Satelital — Últimas Revisiones por Finca{' '}
-					<span className="text-secondary text-[9.5px] font-normal normal-case">
-						{reviewedFarms} de {totalFarms} fincas · Haz clic en una
-						fila para expandir el historial
+					<span className="text-secondary text-sm font-normal normal-case">
+						{reviewedFarms} de {totalFarms} fincas · Haz clic en una fila para expandir el historial
 					</span>
 				</p>
 			</div>
@@ -74,27 +61,13 @@ const MapCard = () => {
 	);
 };
 
-const CardUI = ({
-	title,
-	value,
-	subtitle,
-}: {
-	title: string;
-	value: string;
-	subtitle: string;
-}) => {
+const CardUI = ({ title, value, subtitle }: { title: string; value: string; subtitle: string }) => {
 	return (
 		<CardInfo topBorder="bg-gradient-primary gap-2">
 			<div className="mt-1">
-				<p className="text-secondary text-10 font-medium tracking-[0.08em] uppercase mb-[4px]">
-					{title}
-				</p>
-				<span className="text-primary text-[22px] font-bold leading-[1.1]">
-					{value}
-				</span>
-				<p className="text-secondary text-10 mt-[3px] font-light m-0">
-					{subtitle}
-				</p>
+				<p className="text-secondary text-10 font-medium tracking-[0.08em] uppercase mb-[4px]">{title}</p>
+				<span className="text-primary text-3xl font-bold">{value}</span>
+				<p className="text-secondary text-10 mt-[3px] font-light m-0">{subtitle}</p>
 			</div>
 		</CardInfo>
 	);
@@ -103,9 +76,7 @@ const CardUI = ({
 const UIStateHealth = () => {
 	return (
 		<CardInfo topBorder="bg-green-600" className="gap-2">
-			<p className="text-10 font-semibold text-secondary uppercase tracking-[0.06em] m-0">
-				Estado de Salud
-			</p>
+			<p className="text-10 font-semibold text-secondary uppercase tracking-[0.06em] m-0">Estado de Salud</p>
 
 			<div className="flex items-center justify-between">
 				<DotText label="Optimo" color="optimum" />
@@ -142,12 +113,8 @@ const AlertsCard = () => {
 	return (
 		<CardInfo className="gap-0.5 shadow-card min-w-[280px]">
 			<div className="flex-1">
-				<p className="text-primary text-11 mb-0.5 font-bold">
-					Alertas por Teledetección
-				</p>
-				<p className="text-secondary text-10 mb-2.5">
-					7 fincas con alerta activa
-				</p>
+				<p className="text-primary text-11 mb-0.5 font-bold">Alertas por Teledetección</p>
+				<p className="text-secondary text-10 mb-2.5">7 fincas con alerta activa</p>
 				<div className="gap-1.5 flex flex-col max-h-[360px] overflow-y-auto">
 					<AlertCard
 						title="Finca Arrocera Trujillo"
@@ -227,9 +194,7 @@ const AlertsCard = () => {
 						area="620 ha"
 					/>
 				</div>
-				<p className="text-secondary text-10 mt-2 text-center shrink-0">
-					↕ 2 alertas más
-				</p>
+				<p className="text-secondary text-10 mt-2 text-center shrink-0">↕ 2 alertas más</p>
 			</div>
 		</CardInfo>
 	);

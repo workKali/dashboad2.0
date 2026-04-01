@@ -1,5 +1,3 @@
-import defaultTheme from "tailwindcss/defaultTheme";
-
 const config = {
     content: [
         "./src/**/*.{html,js}",
@@ -31,6 +29,7 @@ const config = {
                 gray: {
                     50: '#f8faf9',
                     100: '#f1f5f2',
+                    150: '#e1e8e7',
                     200: '#e2e8e0',
                     300: '#c8d7cc',
                     400: '#9ca8a2',
@@ -109,18 +108,17 @@ const config = {
             
             // Typography System
             fontSize: {
+                'ultraDense': ['7px', { lineHeight: '9px' }], //7px
+                'dense': ['7.5px', { lineHeight: '9px' }], //7.5px
                 xs: ['8px', { lineHeight: '10px' }],
+                '2xs': ['8.5px', { lineHeight: '11px' }],
                 sm: ['9.5px', { lineHeight: '12px' }],
+                '2sm': ['9px', { lineHeight: '11px' }], //9px
                 base: ['10px', { lineHeight: '13px' }],
                 lg: ['10.5px', { lineHeight: '14px' }],
                 xl: ['11px', { lineHeight: '15px' }],
                 '2xl': ['18px', { lineHeight: '22px' }],
                 '3xl': ['22px', { lineHeight: '24px' }],
-                // Custom sizes for special cases
-                '7px': ['7px', { lineHeight: '9px' }],
-                '7.5px': ['7.5px', { lineHeight: '9px' }],
-                '8.5px': ['8.5px', { lineHeight: '11px' }],
-                '9px': ['9px', { lineHeight: '11px' }],
             },
             fontWeight: {
                 light: '300',
@@ -143,7 +141,7 @@ const config = {
                 '0.1em': '0.1em',
             },
             fontFamily: {
-                sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+                sans: ['var(--font-poppins)', 'system-ui', '-apple-system', 'sans-serif'],
                 mono: ['JetBrains Mono', 'Consolas', 'monospace'],
             },
             

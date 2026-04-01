@@ -10,7 +10,7 @@ export const DashboardPage = () => {
 	return (
 		<div className="flex flex-col gap-1.5">
 			<div className="flex items-center gap-1.5 flex-wrap px-0.5 py-1">
-				<span className="uppercase text-xs font-semibold text-[#7a9e8e] shrink">
+				<span className="uppercase text-base font-semibold text-[#7a9e8e] shrink">
 					Vista:
 				</span>
 				<StatusIndicator variant="approved">
@@ -35,7 +35,7 @@ export const DashboardPage = () => {
 
 const ClearFilterButton = () => {
 	return (
-		<button className="ml-auto bg-none border-0 text-xs text-[#7a9e8e] font-semibold px-1.5 py-0.5 rounded-md underline">
+		<button className="ml-auto bg-none border-0 text-base text-[#7a9e8e] font-semibold px-1.5 py-0.5 rounded-md underline">
 			Limpiar filtros
 		</button>
 	);

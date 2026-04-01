@@ -6,11 +6,12 @@ export const monitoringPresets = {
 	tableDataBold: 'text-sm font-semibold text-secondary',
 
 	// Satellite and Data Visualization (Monitoring specific)
-	satelliteDate: 'text-7.5px font-semibold text-blue-100',
-	satelliteLegend: 'text-7px font-normal text-secondary',
+	satelliteDate: 'text-dense font-semibold text-blue-100',
+	satelliteLegend: 'text-ultraDense font-normal text-secondary',
 
 	// Monitoring specific headers
-	monitoringTitle: 'text-base font-semibold uppercase tracking-wider text-secondary',
+	monitoringTitle:
+		'text-base font-semibold uppercase tracking-wider text-secondary',
 	monitoringSubtitle: 'text-sm font-normal text-secondary',
 
 	// Alert card specific
@@ -18,7 +19,8 @@ export const monitoringPresets = {
 	alertCardSubtitle: 'text-sm font-normal text-secondary',
 
 	// Health status specific
-	healthStatusText: 'text-base font-semibold uppercase tracking-0.06em text-secondary',
+	healthStatusText:
+		'text-base font-semibold uppercase tracking-0.06em text-secondary',
 	dotLabelText: 'text-base font-medium text-secondary',
 };
 

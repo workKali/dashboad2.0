@@ -6,7 +6,7 @@ import { InfoRow } from './InfoRow';
 const ModalDetailLastRevision = () => {
 	return (
 		<div className="bg-[rgb(240,253,244)] border border-[rgb(187,247,208)] rounded-xl p-3">
-			<p className="text-[10px] font-bold text-[rgb(22,101,52)] font-poppins uppercase tracking-[0.06em] mb-2.5">
+			<p className="text-base font-bold text-[rgb(22,101,52)] font-poppins uppercase tracking-[0.06em] mb-2.5">
 				📡 Última Revisión Teledetección
 			</p>
 

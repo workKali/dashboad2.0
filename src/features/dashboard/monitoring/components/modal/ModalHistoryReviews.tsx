@@ -4,7 +4,7 @@ import { SatelliteImg } from '../SatelliteImage';
 const ModalHistoryReviews = () => {
 	return (
 		<div>
-			<p className="text-[10px] font-semibold text-[rgb(122,158,142)] mb-2 uppercase">
+			<p className="text-base font-semibold text-[rgb(122,158,142)] mb-2 uppercase">
 				Historial de revisiones
 			</p>
 
@@ -59,18 +59,18 @@ export const ModalHistoryReviewCard = ({
 				imageUrl={imageUrl}
 				classNameContainer="!w-full !h-[80px]"
 			/>
-			<p className="text-[#7a9e8e] text-[10.5px]">{date}</p>
-			<p className="mt-0.5 text-[10px] font-bold text-[rgb(15,31,20)]">
+			<p className="text-[#7a9e8e] text-lg">{date}</p>
+			<p className="mt-0.5 text-base font-bold text-[rgb(15,31,20)]">
 				{title}
 			</p>
 			<Badge variant={badgeVariant}>{badgeTitle}</Badge>
 			{valueNVDI && (
-				<p className="text-[10px] text-[rgb(58,82,68)] mt-0.75">
+				<p className="text-base text-[rgb(58,82,68)] mt-0.5">
 					{valueNVDI}
 				</p>
 			)}
 			{valueAlert && (
-				<p className="text-[10px] text-[rgb(220,38,38)] text-[10.5px] mt-0.5">
+				<p className="text-base text-[rgb(220,38,38)] mt-0.5">
 					{valueAlert}
 				</p>
 			)}

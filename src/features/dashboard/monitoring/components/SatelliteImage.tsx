@@ -23,10 +23,10 @@ export const SatelliteImg = ({
 				className="w-full h-full object-cover object-center"
 			/>
 			<div className="absolute bottom-0 left-0 right-0 bg-opacity-black-medium p-[2px_5px] flex justify-between items-center">
-				<span className="text-[7.5px] text-white font-poppins font-semibold">
+				<span className="text-dense text-white font-poppins font-semibold">
 					NDVI
 				</span>
-				<span className="text-[7.5px] text-cyan-300 font-poppins">
+				<span className="text-dense text-cyan-300 font-poppins">
 					{date}
 				</span>
 			</div>
@@ -50,7 +50,7 @@ export const SatelliteLegend = ({ values }: SatelliteLegendProps) => {
 			{values.map((value, index) => (
 				<React.Fragment key={index}>
 					<div className={clsx('w-2 h-2', indexColor[index])}></div>
-					<span className="text-[7px] text-secondary font-poppins">
+					<span className="text-ultraDense text-secondary font-poppins">
 						{value}
 					</span>
 				</React.Fragment>
