@@ -19,9 +19,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className='flex h-screen overflow-hidden'>
       {/* Desktop Sidebar */}
-      <nav className="hidden md:block w-[200px] bg-white ">
+      {/* <nav className="hidden md:block w-[200px] bg-white ">
         <Sidebar />
-      </nav>
+      </nav> */}
 
       {/* Mobile Sidebar Drawer */}
       <Drawer
@@ -44,9 +44,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <div className='flex flex-col flex-1 overflow-hidden'>
-        <header className="shrink-0">
+        {/* <header className="shrink-0">
           <Header onMenuClick={handleDrawerToggle} showMenuButton={true} />
-        </header>
+        </header> */}
 
         <main className='flex-1 overflow-y-auto bg-gray-50'>
           {children}

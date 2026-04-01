@@ -1,48 +1,50 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
+import { clsx } from 'clsx';
 
-export const tableCellVariants = cva("", {
-  variants: {
-    variant: {
-      // Celda de flecha expandible
-      expandable: "px-2 py-1 text-center",
-
-      // Celdas de datos principales
-      primary:
-        "px-2.5 py-2 text-base text-primary font-semibold whitespace-nowrap",
-
-      // Celdas de datos secundarios
-      secondary: "px-2.5 py-2 text-base text-secondary",
-
-      // Celdas de datos muted
-      muted: "px-2.5 py-2 text-base text-muted",
-
-      // Celdas de datos grandes (hectares, amount)
-      large: "px-2.5 py-2 text-xl text-primary font-bold",
-
-      // Celdas de datos acento (amount)
-      accent: "px-2.5 py-2 text-xl text-accent font-bold",
-
-      // Celdas de advertencia (ndvi, alert)
-      warning: "px-2.5 py-2 text-base text-warning font-bold",
-
-      // Celdas de error (ndviChange)
-      error: "px-2.5 py-2 text-base text-error font-semibold",
-
-      // Celda de botones
-      button: "px-2 py-1 text-center",
-
-      // Celda de badges
-      badge: "px-2.5 py-2",
-    },
-  },
+const tableCellVariants = cva('', {
+	variants: {
+		isCompact: {
+			true: 'px-2 py-1',
+			false: 'px-2.5 py-2',
+		},
+		isCenter: {
+			true: 'text-center',
+			false: '',
+		},
+		fontSize: {
+			xs: 'text-xs',
+			sm: 'text-sm',
+			base: 'text-base',
+		},
+		textColor: {
+			primary: 'text-primary',
+			secondary: 'text-secondary',
+			muted: 'text-muted',
+			accent: 'text-accent',
+			warning: 'text-warning',
+			error: 'text-error',
+			success: 'text-success',
+		},
+	},
+	defaultVariants: {
+		fontSize: 'base',
+		textColor: 'primary',
+		isCompact: false,
+		isCenter: false,
+	},
 });
 
-interface TableCellProps extends VariantProps<typeof tableCellVariants> {
-  children: React.ReactNode;
+interface TableCellProps {
+	children: React.ReactNode;
+	className?: string;
+	isCenter?: boolean;
+	isCompact?: boolean;
+	fontSize?: 'xs' | 'sm' | 'base';
+	textColor?: 'primary' | 'secondary' | 'muted' | 'accent' | 'warning' | 'error' | 'success';
 }
 
-const TableCell = ({ variant, children }: TableCellProps) => {
-  return <td className={tableCellVariants({ variant })}>{children}</td>;
+const TableCell = ({ children, className, isCenter, isCompact, fontSize, textColor }: TableCellProps) => {
+	return <td className={clsx(tableCellVariants({ isCompact, isCenter, fontSize, textColor }), className)}>{children}</td>;
 };
 
 export default TableCell;

@@ -75,4 +75,4 @@ export const DetailBarSecondary = ({ size, label, percentage }: {
     size: 'sm' | 'md',
     label: string,
     percentage: number,
-}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="medium" labelClassName={`text-gray-700 font-normal ${size === 'sm' ? 'text-9px' : 'text-base'}`} />
+}) => <DefaultDetailBar label={label} percentage={percentage} variantBadge="medium" labelClassName={`text-gray-700 font-normal ${size === 'sm' ? 'text-2sm' : 'text-base'}`} />
