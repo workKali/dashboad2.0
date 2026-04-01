@@ -4,9 +4,7 @@ import { SatelliteImg } from '../SatelliteImage';
 const ModalHistoryReviews = () => {
 	return (
 		<div>
-			<p className="text-base font-semibold text-[rgb(122,158,142)] mb-2 uppercase">
-				Historial de revisiones
-			</p>
+			<p className="text-base font-semibold text-gray-500 mb-2 uppercase">Historial de revisiones</p>
 
 			<div className="flex flex-wrap gap-2">
 				<ModalHistoryReviewCard
@@ -54,26 +52,14 @@ export const ModalHistoryReviewCard = ({
 }: ModalHistoryReviewCardProps) => {
 	return (
 		<div className="bg-[rgb(248,250,249)] rounded-lg px-2.5 py-1.5 min-w-[150px] flex flex-col gap-1">
-			<SatelliteImg
-				date={date}
-				imageUrl={imageUrl}
-				classNameContainer="!w-full !h-[80px]"
-			/>
+			<SatelliteImg date={date} imageUrl={imageUrl} classNameContainer="!w-full !h-[80px]" />
 			<p className="text-[#7a9e8e] text-lg">{date}</p>
-			<p className="mt-0.5 text-base font-bold text-[rgb(15,31,20)]">
-				{title}
-			</p>
-			<Badge variant={badgeVariant}>{badgeTitle}</Badge>
-			{valueNVDI && (
-				<p className="text-base text-[rgb(58,82,68)] mt-0.5">
-					{valueNVDI}
-				</p>
-			)}
-			{valueAlert && (
-				<p className="text-base text-[rgb(220,38,38)] mt-0.5">
-					{valueAlert}
-				</p>
-			)}
+			<p className="mt-0.5 text-base font-bold text-gray-950">{title}</p>
+			<Badge variant={badgeVariant} weight="normal">
+				{badgeTitle}
+			</Badge>
+			{valueNVDI && <p className="text-base text-[rgb(58,82,68)] mt-0.5">{valueNVDI}</p>}
+			{valueAlert && <p className="text-lg text-[rgb(220,38,38)] mt-0.5">{valueAlert}</p>}
 		</div>
 	);
 };

@@ -117,7 +117,7 @@ const config = {
                 base: ['10px', { lineHeight: '13px' }],
                 lg: ['10.5px', { lineHeight: '15.4545px' }],
                 xl: ['11px', { lineHeight: '16px' }],
-                '2xl': ['18px', { lineHeight: '22px' }],
+                '2xl': ['18px', { lineHeight: '27.27px' }],
                 '3xl': ['22px', { lineHeight: '24px' }],
             },
             fontWeight: {

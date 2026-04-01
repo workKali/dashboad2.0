@@ -3,7 +3,7 @@ import CardInfo from '../components/ui/CardInfo';
 import { Badge } from '@/shared/components/ui/Badge';
 import { ToolbarMonitoring } from './components/ToolbarMonitoring';
 import TableMonitoring from './components/TableMonitoring';
-import { ModalMonitoring } from './components/modal';
+import ModalMonitoring from './components/modal/ModalMonitoring';
 
 const MonitoringPage = () => {
 	return (
