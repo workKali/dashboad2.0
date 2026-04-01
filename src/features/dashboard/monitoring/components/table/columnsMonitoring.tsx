@@ -9,7 +9,7 @@ const getHealthStatusBadge = (status: string, color: string) => {
 		warning: 'bg-opacity-amber-light text-warning',
 	};
 	return (
-		<span className={`${colorClasses[color as keyof typeof colorClasses]} rounded-md px-2 py-0.5 text-base font-semibold`}>
+		<span className={`${colorClasses[color as keyof typeof colorClasses]} rounded-md px-2 py-0.5 text-base font-semibold leading-6`}>
 			{status}
 		</span>
 	);
@@ -147,13 +147,14 @@ export const columnsMonitoring: ColumnDef<FarmData>[] = [
 	{
 		id: 'actions',
 		header: 'Acciones',
-		cell: ({ row }) => (
+		cell: ({ row, table }) => (
 			<button
 				title="Ver ficha completa"
 				className="bg-green-50 border border-green-200 rounded-md px-1.5 py-0.5 text-sm font-semibold text-accent font-poppins cursor-pointer whitespace-nowrap hover:bg-green-100 transition-colors"
 				onClick={(e) => {
 					e.stopPropagation();
-					console.log('Farm detail clicked:', row.original);
+					//@ts-ignore
+					table.options.meta?.openModal?.('farm-detail', { farm: row.id });
 				}}
 			>
 				↗ Ficha

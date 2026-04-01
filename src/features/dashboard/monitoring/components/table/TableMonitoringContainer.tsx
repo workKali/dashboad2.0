@@ -13,11 +13,13 @@ import {
 	ExpandedState,
 } from '@tanstack/react-table';
 import { FarmData } from '../../types/tableMonitoring.types';
+import { useModalStore } from '../../store/modalStore';
 
 export const TableMonitoringContainer = () => {
 	const data = useMemo(() => mockData, []);
 	const [isMounted, setIsMounted] = useState(false);
 	const [expanded, setExpanded] = useState<ExpandedState>({});
+	const openModal = useModalStore((s) => s.openModal);
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -26,15 +28,18 @@ export const TableMonitoringContainer = () => {
 	const table = useReactTable<FarmData>({
 		data,
 		columns: columnsMonitoring,
+		getRowCanExpand: () => true,
+		onExpandedChange: setExpanded,
 		getCoreRowModel: getCoreRowModel(),
+		getSortedRowModel: getSortedRowModel(),
 		getExpandedRowModel: getExpandedRowModel(),
 		getFilteredRowModel: getFilteredRowModel(),
-		getSortedRowModel: getSortedRowModel(),
-		getRowCanExpand: () => true,
+		meta: {
+			openModal,
+		},
 		state: {
 			expanded: isMounted ? expanded : {},
 		},
-		onExpandedChange: setExpanded,
 	});
 
 	if (!isMounted) return null;
