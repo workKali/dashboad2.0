@@ -38,7 +38,7 @@ const PopupMap = ({ data, longitude, latitude }: PopupMapProps) => {
 				<div className="flex flex-col gap-1">
 					<Row label="Actividad" value={data.activity || data.activity || '—'} />
 					<Row label="Monto" value={`$${(data.amount / 1e6).toFixed(1)}M`} valueClass="text-green-400" />
-					<Row label="Estado salud" value={data.healthStatus || 'Sin datos'} valueClass={saludClass} />
+					<Row label="Estado salud" value={data.healthStatus || 'Sin datos'} valueClass={'Bueno'} />
 
 					{tieneAlerta && (
 						<div className="mt-[3px] pt-[4px] border-t border-white/10 text-amber-300 text-[10px]">⚠ {data.detectedArea}</div>
