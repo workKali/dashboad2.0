@@ -19,7 +19,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className='flex h-screen overflow-hidden'>
       {/* Desktop Sidebar */}
-      <nav className="hidden md:block w-48 bg-white ">
+      <nav className="hidden md:block w-[200px] bg-white ">
         <Sidebar />
       </nav>
 

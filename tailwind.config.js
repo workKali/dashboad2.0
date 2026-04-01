@@ -112,11 +112,11 @@ const config = {
                 'dense': ['7.5px', { lineHeight: '9px' }], //7.5px
                 xs: ['8px', { lineHeight: '10px' }],
                 '2xs': ['8.5px', { lineHeight: '11px' }],
-                sm: ['9.5px', { lineHeight: '12px' }],
+                sm: ['9.5px', { lineHeight: '14.5px' }],
                 '2sm': ['9px', { lineHeight: '11px' }], //9px
                 base: ['10px', { lineHeight: '13px' }],
-                lg: ['10.5px', { lineHeight: '14px' }],
-                xl: ['11px', { lineHeight: '15px' }],
+                lg: ['10.5px', { lineHeight: '15.4545px' }],
+                xl: ['11px', { lineHeight: '16px' }],
                 '2xl': ['18px', { lineHeight: '22px' }],
                 '3xl': ['22px', { lineHeight: '24px' }],
             },
