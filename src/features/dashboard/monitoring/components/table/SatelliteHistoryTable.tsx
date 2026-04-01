@@ -1,4 +1,4 @@
-import TableCell from '../TableCell';
+import TableCell from './TableCell';
 
 interface SatelliteHistoryTableProps {}
 

@@ -1,13 +1,15 @@
+import { useModalStore } from '../store/modalStore';
 import { SatelliteImg, SatelliteLegend } from './SatelliteImage';
 import SatelliteHistoryTable from './table/SatelliteHistoryTable';
 
 interface ExpandedRowProps {
 	producer: string;
 	farm: string;
-	onFarmDetailClick: (farmData: any) => void;
 }
 
-const ExpandedRow = ({ producer, farm, onFarmDetailClick }: ExpandedRowProps) => {
+const ExpandedRow = ({ producer, farm }: ExpandedRowProps) => {
+	const { openModal } = useModalStore();
+
 	return (
 		<tr className="bg-blue-50 animate-in slide-in-from-top-2 duration-300">
 			<td colSpan={20} className="p-0">
@@ -19,7 +21,7 @@ const ExpandedRow = ({ producer, farm, onFarmDetailClick }: ExpandedRowProps) =>
 						<span className="text-base text-secondary font-poppins">2 revisiones</span>
 						<button
 							className="ml-auto bg-blue-50 border border-blue-300 rounded-[7px] px-2.5 py-0.5 text-sm font-semibold text-blue-600 font-poppins cursor-pointer flex items-center gap-1.5 hover:bg-blue-100 transition-colors"
-							onClick={() => onFarmDetailClick({ producer, farm })}
+							onClick={() => openModal('farmDetail', { producer, farm })}
 						>
 							Ver ficha completa →
 						</button>

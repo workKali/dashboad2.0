@@ -1,3 +1,5 @@
+import { FarmData } from '../types/tableMonitoring.types';
+
 export const farmData = [
 	{ label: 'Productor', value: 'Aurelio Cotrina' },
 	{ label: 'Región', value: 'La Libertad' },
@@ -5,9 +7,8 @@ export const farmData = [
 	{ label: 'Ciclo', value: '2024-02-15 al 2024-07-30' },
 ];
 
-
 // Mock data array with all table cell values
-export const mockData = [
+export const mockData: FarmData[] = [
 	{
 		id: 1,
 		producer: 'Aurelio Cotrina',

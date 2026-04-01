@@ -16,3 +16,4 @@ export const colorPresets = {
 		amount: 'text-accent',
 	},
 };
+
