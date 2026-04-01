@@ -3,7 +3,7 @@
 import { clsx } from 'clsx';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const badgeVariants = cva('text-11 font-bold rounded-[5px] px-1.5 py-px', {
+const badgeVariants = cva('text-xl font-bold rounded-[5px] px-1.5 py-px', {
 	variants: {
 		variant: {
 			high: 'text-error bg-error/10',
@@ -16,7 +16,7 @@ const badgeVariants = cva('text-11 font-bold rounded-[5px] px-1.5 py-px', {
 		},
 		size: {
 			sm: 'text-10',
-			md: 'text-11',
+			md: 'text-xl',
 		},
 	},
 });

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-const dotVariants = cva('w-1.5 h-1.5 shrink-0 inline-block', {
+const dotVariants = cva('w-[7px] h-[7px] shrink-0 inline-block', {
 	variants: {
 		rounded: {
 			full: 'rounded-full',

@@ -8,7 +8,6 @@ import { ModalMonitoring } from './components/modal';
 const MonitoringPage = () => {
 	return (
 		<div className="flex flex-col gap-2.5">
-			<h1>Monitoring Page</h1>
 			<div className="grid grid-cols-4 gap-2.5">
 				<CardUI title="Fincas con Monitoreo Activo" value="23" subtitle="49% de la cartera" />
 				<UIStateHealth />
@@ -37,9 +36,9 @@ const MonitoringContainer = () => {
 	return (
 		<CardInfo className="bg-white shadow-card">
 			<div className="mb-2.5">
-				<p className="text-muted text-xs font-semibold tracking-wider uppercase">
+				<p className="text-muted text-base font-semibold tracking-wide uppercase">
 					Monitoreo Satelital — Últimas Revisiones por Finca{' '}
-					<span className="text-secondary text-sm font-normal normal-case">
+					<span className="text-secondary text-2sm font-normal normal-case tracking-normal">
 						{reviewedFarms} de {totalFarms} fincas · Haz clic en una fila para expandir el historial
 					</span>
 				</p>
@@ -73,7 +72,7 @@ const CardUI = ({ title, value, subtitle }: { title: string; value: string; subt
 
 const UIStateHealth = () => {
 	return (
-		<CardInfo topBorder="bg-green-600" className="gap-2">
+		<CardInfo topBorder="bg-green-600" className="gap-1">
 			<p className="text-base font-semibold text-secondary uppercase tracking-[0.06em] m-0">Estado de Salud</p>
 
 			<div className="flex items-center justify-between">
@@ -192,7 +191,7 @@ const AlertsCard = () => {
 						area="620 ha"
 					/>
 				</div>
-				<p className="text-secondary text-sm mt-4 text-center shrink-0">↕ 2 alertas más</p>
+				<p className="text-secondary text-sm mt-2.5 text-center shrink-0">↕ 2 alertas más</p>
 			</div>
 		</CardInfo>
 	);
@@ -212,7 +211,7 @@ const AlertCard = ({
 	area: string;
 }) => {
 	return (
-		<div className="shrink-0 border border-amber-500 bg-amber-100 rounded-lg py-3.5 px-5 cursor-pointer shadow-none transition-shadow hover:shadow-md">
+		<div className="shrink-0 border border-amber-500 bg-amber-100 rounded-lg py-2 px-3 cursor-pointer shadow-none transition-shadow hover:shadow-md">
 			<p className="text-lg font-bold text-amber-800">{title}</p>
 			<p className="text-sm text-amber-700 mt-0.5">{subtitle}</p>
 			<p className="text-secondary text-sm mt-1">
