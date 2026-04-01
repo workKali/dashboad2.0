@@ -6,7 +6,7 @@ export interface FarmData {
 	region: string;
 	activity: string;
 	hectares: string;
-	amount: string;
+	amount: number;
 	phenologicalPhase: string;
 	healthStatus: string;
 	healthStatusColor: 'optimal' | 'good' | 'warning';

@@ -6,6 +6,17 @@ html {
 	font-size: 16px;
 }
 
+.maplibregl-popup-content {
+	background: transparent !important;
+	padding: 0 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.maplibregl-popup-tip {
+	display: none !important;
+}
+
 .scrollbar-none {
 	-ms-overflow-style: none;
 }

@@ -95,6 +95,7 @@ const config = {
                 inverse: '#ffffff',
                 
                 // Opacity Variants
+                'opacity-dark-green': 'rgba(15,31,20,0.93)',
                 'opacity-green-light': 'rgba(34,197,94,0.133)',
                 'opacity-green-medium': 'rgba(34,197,94,0.094)',
                 'opacity-green-dark': 'rgba(239,68,68,0.07)',
@@ -153,6 +154,7 @@ const config = {
             
             // Shadows
             boxShadow: {
+                'marker': '0px 2px 6px rgba(0,0,0,0.25)',
                 'card': '0px 1px 4px rgba(15,31,20,0.04)',
                 'modal': '0px 24px 80px rgba(0,0,0,0.25)',
                 'default': 'rgba(15,31,20,0.04)',

@@ -12,6 +12,10 @@ const TableMonitoringContainer = dynamic(
 	},
 );
 
+const MapMonitoringContainer = dynamic(() => import('./components/map/MapMonitoringContainer').then((mod) => mod.default), {
+	ssr: true,
+});
+
 const MonitoringPage = () => {
 	return (
 		<div className="flex flex-col gap-2.5">
@@ -24,7 +28,6 @@ const MonitoringPage = () => {
 
 			<div className="flex gap-3 items-stretch">
 				<MapCard />
-
 				<AlertsCard />
 			</div>
 
@@ -60,9 +63,11 @@ const MonitoringContainer = () => {
 
 const MapCard = () => {
 	return (
-		<CardInfo className="bg-red-50 h-[440px] flex-1">
-			<div className="flex-1 "></div>
-		</CardInfo>
+		<div className="flex-1 rounded-xl overflow-hidden">
+			<Suspense fallback={<div>Cargando mapa...</div>}>
+				<MapMonitoringContainer />
+			</Suspense>
+		</div>
 	);
 };
 
